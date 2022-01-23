@@ -19,8 +19,7 @@ ALTER TABLE
 CREATE TABLE "Customer"(
     "CId" INT NOT NULL,
     "UserName" NVARCHAR(255) NOT NULL,
-    "Lid" INT NOT NULL,
-
+  
 );
 ALTER TABLE
     "Customer" ADD CONSTRAINT "Customer_cid_primary" PRIMARY KEY("CId");
@@ -89,8 +88,6 @@ ALTER TABLE
     "Review" ADD CONSTRAINT "Review_cid_foreign" FOREIGN KEY("CId") REFERENCES "Customer"("CId");
 ALTER TABLE
     "Customer" ADD CONSTRAINT "Customer_username_foreign" FOREIGN KEY("UserName") REFERENCES "User"("UserName");
-ALTER TABLE
-    "Customer" ADD CONSTRAINT "Customer_lid_foreign" FOREIGN KEY("Lid") REFERENCES "Location"("LId");
 ALTER TABLE
     "JobOffer" ADD CONSTRAINT "joboffer_wid_foreign" FOREIGN KEY("WId") REFERENCES "Worker"("WId");
 ALTER TABLE

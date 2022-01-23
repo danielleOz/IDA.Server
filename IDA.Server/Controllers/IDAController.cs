@@ -89,11 +89,20 @@ namespace IDA.Server.Controllers
         {
             if (c != null)
             {
-                this.context.CustomerRegister(c);
-
-                HttpContext.Session.SetObject("theUser", c);
-                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                try
+                {
+                    c = this.context.CustomerRegister(c);
+                    HttpContext.Session.SetObject("theUser", c);
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
                 return c;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                    return null;
+                }
+               
             }
             else
             {
