@@ -23,7 +23,12 @@ namespace IDA.Server.Controllers
             this.context = context;
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         [Route("Login")]
         [HttpGet]
         public User Login([FromQuery] string userName, [FromQuery] string pass)
