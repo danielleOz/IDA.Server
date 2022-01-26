@@ -38,6 +38,7 @@ namespace IDA.ServerBL.Models
         {
             try
             {
+                c.UserName = c.UserNameNavigation.UserName;
                 this.Customers.Add(c);
                 this.SaveChanges();
                 return c;
