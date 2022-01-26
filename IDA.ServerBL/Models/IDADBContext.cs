@@ -55,12 +55,6 @@ namespace IDA.ServerBL.Models
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.HasOne(d => d.LidNavigation)
-                    .WithMany(p => p.Customers)
-                    .HasForeignKey(d => d.Lid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Customer_lid_foreign");
-
                 entity.HasOne(d => d.UserNameNavigation)
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.UserName)

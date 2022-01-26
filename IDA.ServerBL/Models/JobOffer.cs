@@ -9,7 +9,7 @@ namespace IDA.ServerBL.Models
     {
         public JobOffer()
         {
-            Reviews = new HashSet<Review>();//tesr
+            Reviews = new HashSet<Review>();
         }
 
         public int Jid { get; set; }

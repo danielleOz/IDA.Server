@@ -9,7 +9,6 @@ namespace IDA.ServerBL.Models
     {
         public Location()
         {
-            Customers = new HashSet<Customer>();
             Workers = new HashSet<Worker>();
         }
 
@@ -17,7 +16,6 @@ namespace IDA.ServerBL.Models
         public string City { get; set; }
         public string Adress { get; set; }
 
-        public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Worker> Workers { get; set; }
     }
 }
