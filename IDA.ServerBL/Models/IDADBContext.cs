@@ -47,9 +47,7 @@ namespace IDA.ServerBL.Models
 
                 entity.ToTable("Customer");
 
-                entity.Property(e => e.Cid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("CId");
+                entity.Property(e => e.Cid).HasColumnName("CId");
 
                 entity.Property(e => e.UserName)
                     .IsRequired()
@@ -69,9 +67,7 @@ namespace IDA.ServerBL.Models
 
                 entity.ToTable("JobOffer");
 
-                entity.Property(e => e.Jid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("JId");
+                entity.Property(e => e.Jid).HasColumnName("JId");
 
                 entity.Property(e => e.Cid).HasColumnName("CId");
 
@@ -119,9 +115,7 @@ namespace IDA.ServerBL.Models
 
                 entity.ToTable("Location");
 
-                entity.Property(e => e.Lid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("LId");
+                entity.Property(e => e.Lid).HasColumnName("LId");
 
                 entity.Property(e => e.Adress)
                     .IsRequired()
@@ -139,9 +133,7 @@ namespace IDA.ServerBL.Models
 
                 entity.ToTable("Review");
 
-                entity.Property(e => e.Rid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("RId");
+                entity.Property(e => e.Rid).HasColumnName("RId");
 
                 entity.Property(e => e.Cid).HasColumnName("CId");
 
@@ -184,9 +176,7 @@ namespace IDA.ServerBL.Models
 
                 entity.ToTable("Service");
 
-                entity.Property(e => e.Sid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("SId");
+                entity.Property(e => e.Sid).HasColumnName("SId");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -243,9 +233,7 @@ namespace IDA.ServerBL.Models
 
                 entity.ToTable("Worker");
 
-                entity.Property(e => e.Wid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("WId");
+                entity.Property(e => e.Wid).HasColumnName("WId");
 
                 entity.Property(e => e.Lid).HasColumnName("LId");
 
@@ -277,9 +265,7 @@ namespace IDA.ServerBL.Models
 
                 entity.ToTable("WorkerService");
 
-                entity.Property(e => e.Swid)
-                    .ValueGeneratedNever()
-                    .HasColumnName("SWId");
+                entity.Property(e => e.Swid).HasColumnName("SWId");
 
                 entity.Property(e => e.Sid).HasColumnName("SId");
 

@@ -1,5 +1,7 @@
 use [master] 
+
 create Database [IDA.DB]
+GO
 Use [IDA.DB]
 Go
 
@@ -17,14 +19,14 @@ ALTER TABLE
     "User" ADD CONSTRAINT "user_username_primary" PRIMARY KEY("UserName");
 
 CREATE TABLE "Customer"(
-    "CId" INT NOT NULL,
+    "CId" INT IDENTITY(1,1) NOT NULL,
     "UserName" NVARCHAR(255) NOT NULL,
   
 );
 ALTER TABLE
     "Customer" ADD CONSTRAINT "Customer_cid_primary" PRIMARY KEY("CId");
 CREATE TABLE "Worker"(
-    "WId" INT NOT NULL,
+    "WId" INT IDENTITY(1,1) NOT NULL,
     "UserName" NVARCHAR(255) NOT NULL,
     "LId" INT NOT NULL,
     "Service" NVARCHAR (255) NOT NULL,
@@ -33,13 +35,13 @@ CREATE TABLE "Worker"(
 ALTER TABLE
     "Worker" ADD CONSTRAINT "Worker_wid_primary" PRIMARY KEY("WId");
 CREATE TABLE "Service"(
-    "SId" INT NOT NULL,
+    "SId" INT IDENTITY(1,1) NOT NULL,
     "Name" NVARCHAR(255) NOT NULL
 );
 ALTER TABLE
     "Service" ADD CONSTRAINT "Service_sid_primary" PRIMARY KEY("SId");
 CREATE TABLE "WorkerService"(
-    "SWId" INT NOT NULL,
+    "SWId" INT IDENTITY(1,1) NOT NULL,
     "SId" INT NOT NULL,
     "WId" INT NOT NULL,
     "Price" FLOAT NOT NULL
@@ -47,7 +49,7 @@ CREATE TABLE "WorkerService"(
 ALTER TABLE
     "WorkerService" ADD CONSTRAINT "WorkerService_swid_primary" PRIMARY KEY("SWId");
 CREATE TABLE "JobOffer"(
-    "JId" INT NOT NULL,
+    "JId" INT IDENTITY(1,1) NOT NULL,
     "WId" INT NOT NULL,
     "CId" INT NOT NULL,
     "SWId" INT NOT NULL,
@@ -58,7 +60,7 @@ CREATE TABLE "JobOffer"(
 ALTER TABLE
     "JobOffer" ADD CONSTRAINT "joboffer_jid_primary" PRIMARY KEY("JId");
 CREATE TABLE "Review"(
-    "RId" INT NOT NULL,
+    "RId" INT IDENTITY(1,1) NOT NULL,
     "SId" INT NOT NULL,
     "SName" NVARCHAR(255) NOT NULL,
     "Date" DATE NOT NULL,
@@ -70,7 +72,7 @@ CREATE TABLE "Review"(
 ALTER TABLE
     "Review" ADD CONSTRAINT "Review_rid_primary" PRIMARY KEY("RId");
 CREATE TABLE "Location"(
-    "LId" INT NOT NULL,
+    "LId" INT IDENTITY(1,1) NOT NULL,
     "City" NVARCHAR(255) NOT NULL,
     "Adress" NVARCHAR(255) NOT NULL
 );
@@ -134,20 +136,15 @@ INSERT INTO [dbo].[User]
 GO
 
 INSERT INTO [dbo].[Service]
-           ([SId]
-           ,[Name])
+           ([Name])
      VALUES
-           (1
-           ,'cleaning'),
+           ('cleaning'),
 
-		   (2
-		   ,'laundry'),
+		   ('laundry'),
 
-		   (3
-           ,'car Washing'),
+		   ('car Washing'),
 
-		   (4
-		   ,'cooking')
+		   ('cooking')
 
 GO
 
