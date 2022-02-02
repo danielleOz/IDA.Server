@@ -34,6 +34,7 @@ CREATE TABLE "Worker"(
 );
 ALTER TABLE
     "Worker" ADD CONSTRAINT "Worker_wid_primary" PRIMARY KEY("WId");
+    
 CREATE TABLE "Service"(
     "SId" INT IDENTITY(1,1) NOT NULL,
     "Name" NVARCHAR(255) NOT NULL
