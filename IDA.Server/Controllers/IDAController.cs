@@ -29,6 +29,8 @@ namespace IDA.Server.Controllers
         /// <param name="userName"></param>
         /// <param name="pass"></param>
         /// <returns></returns>
+
+        #region Login
         [Route("Login")]
         [HttpGet]
         public User Login([FromQuery] string userName, [FromQuery] string pass)
@@ -52,16 +54,20 @@ namespace IDA.Server.Controllers
                 return null;
             }
         }
+        #endregion
 
 
+        #region GetServices
         [Route("GetServices")]
         [HttpGet]
         public List<Service> GetServices()
         {
             return context.Services.ToList();
         }
+        #endregion
 
 
+        #region WorkerRegister
         [Route("WorkerRegister")]
         [HttpPost]
         public Worker WorkerRegister([FromBody] Worker w)
@@ -81,8 +87,10 @@ namespace IDA.Server.Controllers
             }
 
         }
+        #endregion
 
 
+        #region CustomerRegister
         [Route("CustomerRegister")]
         [HttpPost]
         public Customer CustomerRegister([FromBody] Customer c)
@@ -94,7 +102,7 @@ namespace IDA.Server.Controllers
                     c = this.context.CustomerRegister(c);
                     HttpContext.Session.SetObject("theUser", c);
                     Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-                return c;
+                    return c;
                 }
                 catch (Exception e)
                 {
@@ -111,6 +119,28 @@ namespace IDA.Server.Controllers
             }
 
         }
+        #endregion
+
+
+        #region IsUserNameExist
+        [Route("IsUserNameExist")]
+        [HttpGet]
+        public bool IsUserNameExist([FromQuery] string userName)
+        {
+            bool isExist = this.context.UserNameExist(userName);
+            if (isExist)
+            {
+                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                return true;
+            }
+            else
+            {
+                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                return false;
+            }
+        }
+        #endregion
 
     }
+
 }
