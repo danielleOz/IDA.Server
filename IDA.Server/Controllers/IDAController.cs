@@ -141,6 +141,47 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+        #region WorkerAvailbilty
+
+        [Route("WorkerAvailbilty")]
+        [HttpPost]
+        public Worker WorkerAvailbilty([FromBody] Worker worker)
+        {
+            //If contact is null the request is bad
+            if (worker == null)
+            {
+                Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+                return null;
+            }
+
+            User user = HttpContext.Session.GetObject<User>("theUser");
+            //Check if user logged in and its ID is the same as the contact user ID
+
+            if (worker != null/* && user.UserName == worker.UserName*/)
+            {
+                worker
+
+                //Save change into the db
+                context.SaveChanges();
+
+                //Now check if an image exist for the contact (photo). If not, set the default image!
+                var sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", DEFAULT_PHOTO);
+                var targetPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", $"{contact.ContactId}.jpg");
+                System.IO.File.Copy(sourcePath, targetPath);
+
+                //return the contact with its new availbilty if that was a new contact
+                return worker;
+            }
+            else
+            {
+                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                return null;
+            }
+        }
+        #endregion
+
+        
+
     }
 
 }

@@ -1,7 +1,6 @@
 use [master] 
-
 create Database [IDA.DB]
-GO
+
 Use [IDA.DB]
 Go
 
@@ -14,6 +13,7 @@ CREATE TABLE "User"(
     "Adress" NVARCHAR(255) NOT NULL,
     "Birthday" DATETIME NOT NULL,
     "IsWorker" BIT NOT NULL
+   
 );
 ALTER TABLE
     "User" ADD CONSTRAINT "user_username_primary" PRIMARY KEY("UserName");
@@ -30,7 +30,8 @@ CREATE TABLE "Worker"(
     "UserName" NVARCHAR(255) NOT NULL,
     "LId" INT NOT NULL,
     "Service" NVARCHAR (255) NOT NULL,
-    "Location" FLOAT NOT NULL
+    "Location" FLOAT NOT NULL,
+     "Availble" BIT NOT NULL
 );
 ALTER TABLE
     "Worker" ADD CONSTRAINT "Worker_wid_primary" PRIMARY KEY("WId");
