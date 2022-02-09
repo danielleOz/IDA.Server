@@ -31,7 +31,7 @@ CREATE TABLE "Worker"(
     "LId" INT NOT NULL,
     "Service" NVARCHAR (255) NOT NULL,
     "Location" FLOAT NOT NULL,
-     "Availble" BIT NOT NULL
+    "Availble" BIT NOT NULL
 );
 ALTER TABLE
     "Worker" ADD CONSTRAINT "Worker_wid_primary" PRIMARY KEY("WId");

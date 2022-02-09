@@ -145,37 +145,35 @@ namespace IDA.Server.Controllers
 
         [Route("WorkerAvailbilty")]
         [HttpPost]
-        public Worker WorkerAvailbilty([FromBody] Worker worker)
+        public bool WorkerAvailbilty([FromBody] Worker worker)
         {
-            //If contact is null the request is bad
+            //If user is null the request is bad
             if (worker == null)
             {
                 Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
-                return null;
+                return false;
             }
 
-            User user = HttpContext.Session.GetObject<User>("theUser");
+            User currentWorker = HttpContext.Session.GetObject<User>("theUser");
             //Check if user logged in and its ID is the same as the contact user ID
-
-            if (worker != null/* && user.UserName == worker.UserName*/)
+            if (currentWorker != null && currentWorker.UserName == worker.UserName)
             {
-                worker
+               bool success = context.AvailbleWorker(worker);
 
-                //Save change into the db
-                context.SaveChanges();
+                if (!success)
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                    return false;
+                }
 
-                //Now check if an image exist for the contact (photo). If not, set the default image!
-                var sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", DEFAULT_PHOTO);
-                var targetPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", $"{contact.ContactId}.jpg");
-                System.IO.File.Copy(sourcePath, targetPath);
+                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                return true;
 
-                //return the contact with its new availbilty if that was a new contact
-                return worker;
             }
             else
             {
                 Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
-                return null;
+                return false;
             }
         }
         #endregion

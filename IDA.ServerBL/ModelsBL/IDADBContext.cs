@@ -76,5 +76,54 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
+        #region AvailbleWorker
+
+        public bool AvailbleWorker(Worker w)
+        {
+            try
+            {
+                Worker currentWorker = this.Workers
+                .Where( worker => worker.UserName == w.UserName).FirstOrDefault();
+
+                currentWorker.Availble = w.Availble;
+
+                this.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+
+        #endregion
+
+
+        //public User UpdateUser(User user, User updatedUser)
+        //{
+        //    try
+        //    {
+        //        User currentUser = this.Users
+        //        .Where(u => u.Id == user.Id).FirstOrDefault();
+
+        //        currentUser.FirstName = updatedUser.FirstName;
+        //        currentUser.LastName = updatedUser.LastName;
+        //        currentUser.UserPswd = updatedUser.UserPswd;
+        //        currentUser.BirthDate = updatedUser.BirthDate;
+        //        currentUser.PhoneNum = updatedUser.PhoneNum;
+        //        currentUser.City = updatedUser.City;
+        //        currentUser.Street = updatedUser.Street;
+        //        currentUser.HouseNum = updatedUser.HouseNum;
+
+        //        this.SaveChanges();
+        //        return currentUser;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        return null;
+        //    }
+        //}
     }
 }

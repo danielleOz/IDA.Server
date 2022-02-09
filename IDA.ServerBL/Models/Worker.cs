@@ -19,6 +19,7 @@ namespace IDA.ServerBL.Models
         public int Lid { get; set; }
         public string Service { get; set; }
         public double Location { get; set; }
+        public bool Availble { get; set; }
 
         public virtual Location LidNavigation { get; set; }
         public virtual User UserNameNavigation { get; set; }
