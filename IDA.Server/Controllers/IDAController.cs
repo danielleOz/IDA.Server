@@ -145,7 +145,7 @@ namespace IDA.Server.Controllers
 
         [Route("WorkerAvailbilty")]
         [HttpPost]
-        public bool WorkerAvailbilty([FromBody] Worker worker)
+        public bool WorkerAvailbilty([FromBody] Worker worker)//..
         {
             //If user is null the request is bad
             if (worker == null)

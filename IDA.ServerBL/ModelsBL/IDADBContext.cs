@@ -87,7 +87,7 @@ namespace IDA.ServerBL.Models
 
                 currentWorker.Availble = w.Availble;
 
-                this.SaveChanges();
+                this.SaveChanges();//..
                 return true;
             }
             catch (Exception e)
