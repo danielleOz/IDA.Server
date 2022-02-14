@@ -24,7 +24,11 @@ namespace IDA.ServerBL.Models
         {
             try
             {
-                this.Workers.Add(w);
+                this.Entry(w.UserNameNavigation).State = EntityState.Added;
+                this.Entry(w).State = EntityState.Added;
+                foreach (WorkerService ws in w.WorkerServices)
+                    this.Entry(ws).State = EntityState.Added;
+                //this.Workers.Add(w);
                 this.SaveChanges();
                 return w;
             }

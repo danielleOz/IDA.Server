@@ -149,6 +149,5 @@ INSERT INTO [dbo].[Service]
 		   ('cooking')
 
 GO
-
-
-
+insert into Location VALUES ('city','address')
+select * from WorkerService
