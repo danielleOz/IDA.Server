@@ -12,9 +12,9 @@ namespace IDA.ServerBL.Models
     public partial class IDADBContext : DbContext
     {
         #region Login
-        public User Login(string userName, string pswd)
+        public User Login(string email, string pswd)
         {
-            return this.Users.Where(u => u.UserName == userName && u.UserPswd == pswd).FirstOrDefault();
+            return this.Users.Where(u => u.Email == email && u.UserPswd == pswd).FirstOrDefault();
 
         }
         #endregion
@@ -24,7 +24,7 @@ namespace IDA.ServerBL.Models
         {
             try
             {
-                this.Entry(w.UserNameNavigation).State = EntityState.Added;
+                this.Entry(w.IdNavigation).State = EntityState.Added;
                 this.Entry(w).State = EntityState.Added;
                 foreach (WorkerService ws in w.WorkerServices)
                     this.Entry(ws).State = EntityState.Added;
@@ -44,14 +44,13 @@ namespace IDA.ServerBL.Models
 
 
         #region CustomerRegister
-        public Customer CustomerRegister (Customer c)
+        public User UserRegistration (User u)
         {
             try
             {
-                c.UserName = c.UserNameNavigation.UserName;
-                this.Customers.Add(c);
+                this.Users.Add(u);
                 this.SaveChanges();
-                return c;
+                return u;
             }
             
             
@@ -65,12 +64,12 @@ namespace IDA.ServerBL.Models
         #endregion
 
 
-        #region UserNameExist
-        public bool UserNameExist(string userName)
+        #region EmailExist
+        public bool EmailExist(string email)
         {
             try
             {
-                return this.Users.Any(u => u.UserName == userName);
+                return this.Users.Any(u => u.Email == email);
             }
             catch (Exception e)
             {
@@ -87,9 +86,9 @@ namespace IDA.ServerBL.Models
             try
             {
                 Worker currentWorker = this.Workers
-                .Where( worker => worker.UserName == w.UserName).FirstOrDefault();
+                .Where( worker => worker.Id == w.Id).FirstOrDefault();
 
-                currentWorker.Availble = w.Availble;
+                currentWorker.IsAvailbleUntil = w.IsAvailbleUntil;
 
                 this.SaveChanges();//..
                 return true;

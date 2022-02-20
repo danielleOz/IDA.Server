@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using IDA.Server.DTO;
 
 //Add the below
 using IDA.ServerBL.Models;
@@ -33,14 +34,38 @@ namespace IDA.Server.Controllers
         #region Login
         [Route("Login")]
         [HttpGet]
-        public User Login([FromQuery] string userName, [FromQuery] string pass)
+        public User Login([FromQuery] string email, [FromQuery] string pass)
         {
-            User user = context.Login(userName, pass);
-
+            User user = context.Login(email, pass);
+            
             //Check user name and password
             if (user != null)
             {
-                HttpContext.Session.SetObject("theUser", user);
+                Worker w = context.Workers.Where(w => w.Id == user.Id).FirstOrDefault();
+                if (w == null)
+                    HttpContext.Session.SetObject("theUser", user);
+                else
+                {
+                    WorkerDto worker = new WorkerDto()
+                    {
+                        Id = user.Id,
+                        Email = user.Email,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        UserPswd = user.UserPswd,
+                        City = user.City,
+                        Street = user.Street,
+                        Apartment = user.Apartment,
+                        HouseNumber = user.HouseNumber,
+                        Birthday = user.Birthday,
+                        IsWorker = user.IsWorker,
+                        IsAvailbleUntil = w.IsAvailbleUntil,
+                        RadiusKm = w.RadiusKm
+                    };
+
+                    HttpContext.Session.SetObject("theUser", worker);
+                    user = worker;
+                }
 
                 Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
 
@@ -70,7 +95,7 @@ namespace IDA.Server.Controllers
         #region WorkerRegister
         [Route("WorkerRegister")]
         [HttpPost]
-        public Worker WorkerRegister([FromBody] Worker w)
+        public WorkerDto WorkerRegister([FromBody] WorkerDto w)
         {
             if (w != null)
             {
@@ -91,18 +116,18 @@ namespace IDA.Server.Controllers
 
 
         #region CustomerRegister
-        [Route("CustomerRegister")]
+        [Route("UserRegister")]
         [HttpPost]
-        public Customer CustomerRegister([FromBody] Customer c)
+        public User CustomerRegister([FromBody] User u)
         {
-            if (c != null)
+            if (u != null)
             {
                 try
                 {
-                    c = this.context.CustomerRegister(c);
-                    HttpContext.Session.SetObject("theUser", c);
+                    u = this.context.UserRegistration(u);
+                    HttpContext.Session.SetObject("theUser", u);
                     Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-                    return c;
+                    return u;
                 }
                 catch (Exception e)
                 {
@@ -123,11 +148,11 @@ namespace IDA.Server.Controllers
 
 
         #region IsUserNameExist
-        [Route("IsUserNameExist")]
+        [Route("IsEmailExist")]
         [HttpGet]
-        public bool IsUserNameExist([FromQuery] string userName)
+        public bool IsUserNameExist([FromQuery] string email)
         {
-            bool isExist = this.context.UserNameExist(userName);
+            bool isExist = this.context.EmailExist(email);
             if (isExist)
             {
                 Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
@@ -156,7 +181,7 @@ namespace IDA.Server.Controllers
 
             User currentWorker = HttpContext.Session.GetObject<User>("theUser");
             //Check if user logged in and its ID is the same as the contact user ID
-            if (currentWorker != null && currentWorker.UserName == worker.UserName)
+            if (currentWorker != null && currentWorker.Id == worker.Id)
             {
                bool success = context.AvailbleWorker(worker);
 

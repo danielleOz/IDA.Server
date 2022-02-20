@@ -7,24 +7,20 @@ namespace IDA.ServerBL.Models
 {
     public partial class JobOffer
     {
-        public JobOffer()
-        {
-            Reviews = new HashSet<Review>();
-        }
+        public int Id { get; set; }
+        public int ServiceId { get; set; }
+        public int? ChosenWorkerId { get; set; }
+        public int UserId { get; set; }
+        public DateTime PublishDate { get; set; }
+        public int StatusId { get; set; }
+        public string Description { get; set; }
+        public string WorkerReviewDescriptipon { get; set; }
+        public int? WorkerReviewRate { get; set; }
+        public DateTime? WorkerReviewDate { get; set; }
 
-        public int Jid { get; set; }
-        public int Wid { get; set; }
-        public int Cid { get; set; }
-        public int Swid { get; set; }
-        public int Time { get; set; }
-        public int Status { get; set; }
-        public int Rid { get; set; }
-
-        public virtual Customer CidNavigation { get; set; }
-        public virtual Review RidNavigation { get; set; }
-        public virtual Status StatusNavigation { get; set; }
-        public virtual WorkerService Sw { get; set; }
-        public virtual Worker WidNavigation { get; set; }
-        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual Worker ChosenWorker { get; set; }
+        public virtual Service Service { get; set; }
+        public virtual JobOfferStatus Status { get; set; }
+        public virtual User User { get; set; }
     }
 }
