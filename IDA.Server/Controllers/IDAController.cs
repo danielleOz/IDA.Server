@@ -150,7 +150,7 @@ namespace IDA.Server.Controllers
                     Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
                     return u;
                 }
-                catch (Exception e)
+                catch (Exception e) 
                 {
                     Console.WriteLine(e.Message);
                     Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
