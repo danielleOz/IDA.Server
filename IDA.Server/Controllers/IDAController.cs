@@ -97,9 +97,30 @@ namespace IDA.Server.Controllers
         [HttpPost]
         public WorkerDto WorkerRegister([FromBody] WorkerDto w)
         {
-            if (w != null)
+            if (w != null) 
             {
-                this.context.WorkerRegister(w);
+                User u = new User
+                {
+                    Id = w.Id,
+                    Email = w.Email,
+                    FirstName = w.FirstName,
+                    LastName = w.LastName,
+                    UserPswd = w.UserPswd,
+                    City = w.City,
+                    Street = w.Street,
+                    Apartment = w.Apartment,
+                    HouseNumber = w.HouseNumber,
+                    Birthday = w.Birthday,
+                    IsWorker = w.IsWorker,
+                };
+                Worker worker = new Worker
+                {
+                    Id = w.Id,
+                    IsAvailbleUntil = w.IsAvailbleUntil,
+                    RadiusKm = w.RadiusKm,
+                    IdNavigation = u
+                };
+                this.context.WorkerRegister(worker);
 
                 HttpContext.Session.SetObject("theUser", w);
                 Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
@@ -118,7 +139,7 @@ namespace IDA.Server.Controllers
         #region CustomerRegister
         [Route("UserRegister")]
         [HttpPost]
-        public User CustomerRegister([FromBody] User u)
+        public User UserRegister([FromBody] User u)
         {
             if (u != null)
             {
@@ -150,7 +171,7 @@ namespace IDA.Server.Controllers
         #region IsUserNameExist
         [Route("IsEmailExist")]
         [HttpGet]
-        public bool IsUserNameExist([FromQuery] string email)
+        public bool IsEmailExist([FromQuery] string email)
         {
             bool isExist = this.context.EmailExist(email);
             if (isExist)
@@ -170,20 +191,15 @@ namespace IDA.Server.Controllers
 
         [Route("WorkerAvailbilty")]
         [HttpPost]
-        public bool WorkerAvailbilty([FromBody] Worker worker)//..
+        public bool WorkerAvailbilty([FromBody] DateTime availablity)//..
         {
-            //If user is null the request is bad
-            if (worker == null)
-            {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
-                return false;
-            }
-
-            User currentWorker = HttpContext.Session.GetObject<User>("theUser");
+            
+            WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
             //Check if user logged in and its ID is the same as the contact user ID
-            if (currentWorker != null && currentWorker.Id == worker.Id)
+            if (currentWorker != null)
             {
-               bool success = context.AvailbleWorker(worker);
+               
+               bool success = context.AvailbleWorker(currentWorker.Id, availablity);
 
                 if (!success)
                 {
