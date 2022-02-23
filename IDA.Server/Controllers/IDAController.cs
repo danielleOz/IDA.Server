@@ -189,9 +189,9 @@ namespace IDA.Server.Controllers
 
         #region WorkerAvailbilty
 
-        [Route("WorkerAvailbilty")]
+        [Route("UpdateWorkerAvailbilty")]
         [HttpPost]
-        public bool WorkerAvailbilty([FromBody] DateTime availablity)//..
+        public bool UpdateWorkerAvailbilty([FromBody] DateTime availablity)//..
         {
             
             WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
