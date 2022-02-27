@@ -15,7 +15,8 @@ namespace IDA.Server.DTO
         }
 
         public double RadiusKm { get; set; }
-        public DateTime IsAvailbleUntil { get; set; }
+        public DateTime AvailbleUntil { get; set; }
+        public bool IsAvailble { get; set; }
 
         public ICollection<JobOffer> WorkerJobOffers { get; set; }
         public ICollection<WorkerService> WorkerServices { get; set; }

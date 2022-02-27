@@ -59,7 +59,8 @@ namespace IDA.Server.Controllers
                         HouseNumber = user.HouseNumber,
                         Birthday = user.Birthday,
                         IsWorker = user.IsWorker,
-                        IsAvailbleUntil = w.IsAvailbleUntil,
+                        IsAvailble = w.IsAvailble,
+                        //AvailbleUntil = w.AvailbleUntil,
                         RadiusKm = w.RadiusKm
                     };
 
@@ -116,7 +117,7 @@ namespace IDA.Server.Controllers
                 Worker worker = new Worker
                 {
                     Id = w.Id,
-                    IsAvailbleUntil = w.IsAvailbleUntil,
+                    IsAvailble = false,
                     RadiusKm = w.RadiusKm,
                     IdNavigation = u
                 };
@@ -136,7 +137,7 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        #region CustomerRegister
+        #region UserRegister
         [Route("UserRegister")]
         [HttpPost]
         public User UserRegister([FromBody] User u)
