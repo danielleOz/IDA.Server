@@ -15,7 +15,8 @@ namespace IDA.ServerBL.Models
 
         public int Id { get; set; }
         public double RadiusKm { get; set; }
-        public DateTime IsAvailbleUntil { get; set; }
+        public DateTime? AvailbleUntil { get; set; }
+        public bool IsAvailble { get; set; }
 
         public virtual User IdNavigation { get; set; }
         public virtual ICollection<JobOffer> JobOffers { get; set; }

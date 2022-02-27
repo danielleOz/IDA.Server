@@ -175,7 +175,7 @@ namespace IDA.ServerBL.Models
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.IsAvailbleUntil).HasColumnType("datetime");
+                entity.Property(e => e.AvailbleUntil).HasColumnType("datetime");
 
                 entity.Property(e => e.RadiusKm).HasColumnName("RadiusKM");
 
