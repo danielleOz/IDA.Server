@@ -30,7 +30,9 @@ ALTER TABLE
 CREATE TABLE "Worker"(
     "Id" INT primary key NOT NULL,
     "RadiusKM" FLOAT NOT NULL,
-    "IsAvailbleUntil" DATETIME NOT NULL
+    "AvailbleUntil" DATETIME  NULL,
+    "IsAvailble" BIT NOT NULL
+
 );
 
 
