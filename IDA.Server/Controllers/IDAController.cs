@@ -169,7 +169,7 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        #region IsUserNameExist
+        #region IsEmailExist
         [Route("IsEmailExist")]
         [HttpGet]
         public bool IsEmailExist([FromQuery] string email)

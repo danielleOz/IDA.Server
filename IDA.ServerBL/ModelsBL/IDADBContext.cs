@@ -14,7 +14,16 @@ namespace IDA.ServerBL.Models
         #region Login
         public User Login(string email, string pswd)
         {
-            return this.Users.Where(u => u.Email == email && u.UserPswd == pswd).FirstOrDefault();
+            try
+            {
+                return this.Users.Where(u => u.Email == email && u.UserPswd == pswd).FirstOrDefault();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
 
         }
         #endregion
