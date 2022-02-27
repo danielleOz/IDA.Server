@@ -81,14 +81,14 @@ namespace IDA.ServerBL.Models
 
         #region AvailbleWorker
 
-        public bool AvailbleWorker(int workerId, DateTime availability)
+        public bool AvailbleWorker(int workerId, bool availability)
         {
             try
             {
                 Worker currentWorker = this.Workers
                 .Where( worker => worker.Id == workerId).FirstOrDefault();
 
-                currentWorker.IsAvailbleUntil = availability;
+                currentWorker.IsAvailble = availability;
                 this.Workers.Update(currentWorker);
 
                 this.SaveChanges();//..
