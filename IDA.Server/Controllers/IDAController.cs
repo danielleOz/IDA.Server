@@ -59,7 +59,7 @@ namespace IDA.Server.Controllers
                         HouseNumber = user.HouseNumber,
                         Birthday = user.Birthday,
                         IsWorker = user.IsWorker,
-                        IsAvailble = w.IsAvailble,
+                        //IsAvailble = w.IsAvailble,
                         //AvailbleUntil = w.AvailbleUntil,
                         RadiusKm = w.RadiusKm
                     };
@@ -119,7 +119,9 @@ namespace IDA.Server.Controllers
                     Id = w.Id,
                     IsAvailble = false,
                     RadiusKm = w.RadiusKm,
-                    IdNavigation = u
+                    IdNavigation = u,
+                    WorkerServices=w.WorkerServices
+                    
                 };
                 this.context.WorkerRegister(worker);
 
