@@ -13,9 +13,9 @@ namespace IDA.Server.DTO
             JobOffers = new HashSet<JobOffer>();
             WorkerServices = new HashSet<WorkerService>();
         }
-
+        public int Id { get; set; }
         public double RadiusKm { get; set; }
-        public DateTime AvailbleUntil { get; set; }
+        public DateTime? AvailbleUntil { get; set; }
         public bool IsAvailble { get; set; }
 
         public ICollection<JobOffer> WorkerJobOffers { get; set; }

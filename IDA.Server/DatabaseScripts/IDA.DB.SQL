@@ -30,8 +30,8 @@ ALTER TABLE
 CREATE TABLE "Worker"(
     "Id" INT primary key NOT NULL,
     "RadiusKM" FLOAT NOT NULL,
-    "AvailbleUntil" DATETIME  NULL,
-    "IsAvailble" BIT NOT NULL
+    "AvailbleUntil" DATETIME  NOT NULL
+
 
 );
 
@@ -140,6 +140,8 @@ INSERT INTO [dbo].[Service]
            ('Dog Walking')
 
 GO
+
+
 
 
 
