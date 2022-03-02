@@ -117,7 +117,7 @@ namespace IDA.Server.Controllers
                 Worker worker = new Worker
                 {
                     Id = w.Id,
-                    IsAvailble = false,
+                    AvailbleUntil = DateTime.MinValue,
                     RadiusKm = w.RadiusKm,
                     IdNavigation = u,
                     WorkerServices=w.WorkerServices
@@ -190,35 +190,46 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+
         #region WorkerAvailbilty
 
         [Route("UpdateWorkerAvailbilty")]
         [HttpPost]
-        public bool UpdateWorkerAvailbilty([FromBody] bool availablity)//..
+        public bool UpdateWorkerAvailbilty([FromBody] WorkerDto w)//..
         {
-            
-            WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
-            //Check if user logged in and its ID is the same as the contact user ID
-            if (currentWorker != null)
+            try
             {
-               
-               bool success = context.AvailbleWorker(currentWorker.Id, availablity);
-
-                if (!success)
+                WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
+                //Check if user logged in and its ID is the same as the contact user ID
+                if (currentWorker != null)
                 {
-                    Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                    Worker current = context.Workers.Where(cw => cw.Id == w.Id).FirstOrDefault();
+                    if (current != null)
+                    {
+                        current.AvailbleUntil = (DateTime)w.AvailbleUntil;
+                        context.SaveChanges();
+                        Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                        return true;
+
+                    }
+                    else
+                    {
+                        Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                        return false;
+                    }
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
                     return false;
                 }
-
-                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-                return true;
-
             }
-            else
+            catch(Exception e)
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
                 return false;
             }
+            
         }
         #endregion
 

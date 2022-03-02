@@ -88,30 +88,7 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-        #region AvailbleWorker
-
-        public bool AvailbleWorker(int workerId, bool availability)
-        {
-            try
-            {
-                Worker currentWorker = this.Workers
-                .Where( worker => worker.Id == workerId).FirstOrDefault();
-
-                currentWorker.IsAvailble = availability;
-                this.Workers.Update(currentWorker);
-
-                this.SaveChanges();//..
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return false;
-            }
-        }
-
-        #endregion
-
+        
 
         //public User UpdateUser(User user, User updatedUser)
         //{
