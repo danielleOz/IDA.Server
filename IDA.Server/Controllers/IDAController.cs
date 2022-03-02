@@ -60,7 +60,7 @@ namespace IDA.Server.Controllers
                         Birthday = user.Birthday,
                         IsWorker = user.IsWorker,
                         //IsAvailble = w.IsAvailble,
-                        //AvailbleUntil = w.AvailbleUntil,
+                        AvailbleUntil = w.AvailbleUntil,
                         RadiusKm = w.RadiusKm
                     };
 

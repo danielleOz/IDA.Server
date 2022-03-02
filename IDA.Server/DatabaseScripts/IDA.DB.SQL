@@ -127,6 +127,44 @@ INSERT INTO [dbo].[User]
            ,'false')
 GO
 
+INSERT INTO [dbo].[User]
+           ([Email]
+           ,[FirstName]
+           ,[LastName]
+           ,[UserPswd]
+           ,[City]
+           ,[Apartment]
+           ,[Street]
+           ,[HouseNumber]
+           ,[Birthday]
+           ,[IsWorker])
+     VALUES
+           ('www@www.com'
+           ,'www'
+           ,'www'
+           ,'123456'
+           ,'telaviv'
+           ,'8'
+           ,'Ben Yehuda'
+           ,'19'
+           ,'1978-02-21'
+           ,'true')
+GO
+
+INSERT INTO [dbo].[Worker]
+           ([id]
+           ,[RadiusKM]
+           ,[AvailbleUntil])
+ 
+     VALUES
+           (2
+           ,2
+           ,'1978-02-21')
+   
+GO
+
+
+
 INSERT INTO [dbo].[Service]
            ([Name])
      VALUES
