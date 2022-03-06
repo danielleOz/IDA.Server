@@ -195,7 +195,7 @@ namespace IDA.Server.Controllers
 
         [Route("UpdateWorkerAvailbilty")]
         [HttpPost]
-        public bool UpdateWorkerAvailbilty([FromBody] WorkerDto w)//..
+        public bool UpdateWorkerAvailbilty([FromBody] DateTime d)//..
         {
             try
             {
@@ -203,10 +203,10 @@ namespace IDA.Server.Controllers
                 //Check if user logged in and its ID is the same as the contact user ID
                 if (currentWorker != null)
                 {
-                    Worker current = context.Workers.Where(cw => cw.Id == w.Id).FirstOrDefault();
+                    Worker current = context.Workers.Where(cw => cw.Id == currentWorker.Id).FirstOrDefault();
                     if (current != null)
                     {
-                        current.AvailbleUntil = (DateTime)w.AvailbleUntil;
+                        current.AvailbleUntil = (DateTime)currentWorker.AvailbleUntil;
                         context.SaveChanges();
                         Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
                         return true;
@@ -233,8 +233,36 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
-        
 
+        #region get workers reviews
+
+        [Route("GetAllWR")]
+        [HttpGet]
+        public List<JobOffer> GetAllWR()
+        {
+            try
+            {
+                User user = HttpContext.Session.GetObject<User>("theUser");
+                //Check if user logged in and its ID is the same as the contact user ID
+                if (user != null && user.IsWorker)
+                {
+                    return context.JobOffers.ToList();
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+
+        #endregion
     }
 
 }
