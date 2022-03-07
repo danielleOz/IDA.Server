@@ -28,7 +28,8 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-        #region WorkerRegister
+
+        #region Worker Register
         public Worker WorkerRegister(Worker w)
         {
             try
@@ -52,8 +53,8 @@ namespace IDA.ServerBL.Models
         #endregion
 
 
-        #region CustomerRegister
-        public User UserRegistration (User u)
+        #region Customer Register
+        public User UserRegistration(User u)
         {
             try
             {
@@ -61,8 +62,8 @@ namespace IDA.ServerBL.Models
                 this.SaveChanges();
                 return u;
             }
-            
-            
+
+
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
@@ -73,7 +74,7 @@ namespace IDA.ServerBL.Models
         #endregion
 
 
-        #region EmailExist
+        #region  Is Email Exist
         public bool EmailExist(string email)
         {
             try
@@ -88,26 +89,42 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-        
 
-        //public User UpdateUser(User user, User updatedUser)
+        #region Update User
+        public User UpdateUser(User user, User updatedUser)
+        {
+            try
+            {
+                User currentUser = this.Users
+                .Where(u => u.Id == user.Id).FirstOrDefault();
+
+                currentUser.FirstName = updatedUser.FirstName;
+                currentUser.LastName = updatedUser.LastName;
+                currentUser.UserPswd = updatedUser.UserPswd;
+                currentUser.Birthday = updatedUser.Birthday;
+                currentUser.Apartment = updatedUser.Apartment;
+                currentUser.City = updatedUser.City;
+                currentUser.Street = updatedUser.Street;
+                currentUser.HouseNumber = updatedUser.HouseNumber;
+
+
+                this.SaveChanges();
+                return currentUser;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        #endregion
+
+        //#region Update Worker
+        //public Worker UpdateWorker(Worker worker, Worker updatedWorker)
         //{
         //    try
         //    {
-        //        User currentUser = this.Users
-        //        .Where(u => u.Id == user.Id).FirstOrDefault();
-
-        //        currentUser.FirstName = updatedUser.FirstName;
-        //        currentUser.LastName = updatedUser.LastName;
-        //        currentUser.UserPswd = updatedUser.UserPswd;
-        //        currentUser.BirthDate = updatedUser.BirthDate;
-        //        currentUser.PhoneNum = updatedUser.PhoneNum;
-        //        currentUser.City = updatedUser.City;
-        //        currentUser.Street = updatedUser.Street;
-        //        currentUser.HouseNum = updatedUser.HouseNum;
-
-        //        this.SaveChanges();
-        //        return currentUser;
+               
         //    }
         //    catch (Exception e)
         //    {
@@ -115,5 +132,8 @@ namespace IDA.ServerBL.Models
         //        return null;
         //    }
         //}
+        //#endregion
+
+
     }
 }

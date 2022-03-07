@@ -36,54 +36,55 @@ namespace IDA.Server.Controllers
         [HttpGet]
         public User Login([FromQuery] string email, [FromQuery] string pass)
         {
-            try 
-            { 
-            User user = context.Login(email, pass);
-
-            //Check user name and password
-            if (user != null)
+            try
             {
-                Worker w = context.Workers.Where(w => w.Id == user.Id).FirstOrDefault();
-                if (w == null)
-                    HttpContext.Session.SetObject("theUser", user);
+
+                User user = context.Login(email, pass);
+
+                //Check user name and password
+                if (user != null)
+                {
+                    Worker w = context.Workers.Where(w => w.Id == user.Id).FirstOrDefault();
+                    if (w == null)
+                        HttpContext.Session.SetObject("theUser", user);
+                    else
+                    {
+                        WorkerDto worker = new WorkerDto()
+                        {
+                            Id = user.Id,
+                            Email = user.Email,
+                            FirstName = user.FirstName,
+                            LastName = user.LastName,
+                            UserPswd = user.UserPswd,
+                            City = user.City,
+                            Street = user.Street,
+                            Apartment = user.Apartment,
+                            HouseNumber = user.HouseNumber,
+                            Birthday = user.Birthday,
+                            IsWorker = user.IsWorker,
+                            //IsAvailble = w.IsAvailble,
+                            AvailbleUntil = w.AvailbleUntil,
+                            RadiusKm = w.RadiusKm
+                        };
+
+                        HttpContext.Session.SetObject("theUser", worker);
+                        user = worker;
+                    }
+
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+
+                    //Important! Due to the Lazy Loading, the user will be returned with all of its contects!!
+                    return user;
+                }
                 else
                 {
-                    WorkerDto worker = new WorkerDto()
-                    {
-                        Id = user.Id,
-                        Email = user.Email,
-                        FirstName = user.FirstName,
-                        LastName = user.LastName,
-                        UserPswd = user.UserPswd,
-                        City = user.City,
-                        Street = user.Street,
-                        Apartment = user.Apartment,
-                        HouseNumber = user.HouseNumber,
-                        Birthday = user.Birthday,
-                        IsWorker = user.IsWorker,
-                        //IsAvailble = w.IsAvailble,
-                        AvailbleUntil = w.AvailbleUntil,
-                        RadiusKm = w.RadiusKm
-                    };
 
-                    HttpContext.Session.SetObject("theUser", worker);
-                    user = worker;
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return null;
                 }
 
-                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-
-                //Important! Due to the Lazy Loading, the user will be returned with all of its contects!!
-                return user;
             }
-            else
-            {
-
-                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
-                return null;
-            }
-
-            }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return null;
@@ -92,7 +93,7 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        #region GetServices
+        #region Get Services
         [Route("GetServices")]
         [HttpGet]
         public List<Service> GetServices()
@@ -102,7 +103,7 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        #region WorkerRegister
+        #region Worker Register
         [Route("WorkerRegister")]
         [HttpPost]
         public WorkerDto WorkerRegister([FromBody] WorkerDto w)
@@ -157,7 +158,7 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        #region UserRegister
+        #region User Register
         [Route("UserRegister")]
         [HttpPost]
         public User UserRegister([FromBody] User u)
@@ -198,7 +199,7 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        #region IsEmailExist
+        #region Is Email Exist
         [Route("IsEmailExist")]
         [HttpGet]
         public bool IsEmailExist([FromQuery] string email)
@@ -230,12 +231,12 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        #region WorkerAvailbilty
+        #region Worker Availbilty
 
         [Route("UpdateWorkerAvailbilty")]
         [HttpPost]
         public bool UpdateWorkerAvailbilty([FromBody] DateTime d)//..
-        { 
+        {
             try
             {
                 WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
@@ -306,6 +307,98 @@ namespace IDA.Server.Controllers
 
 
         #endregion
+
+
+        //#region Worker Update 
+        //[Route("WorkerUpdate")]
+        //[HttpPost]
+        //public Worker WorkerUpdate([FromBody] WorkerDto w)
+        //{
+        //    try
+        //    {
+        //        if (w == null)
+        //        {
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+        //            return null;
+        //        }
+
+
+        //        Worker currentWorker = HttpContext.Session.GetObject<Worker>("theWorker");
+
+        //        //Check if user logged in and its ID is the same as the contact user ID
+        //        if (currentWorker != null && currentWorker.Id == w.Id)
+        //        {
+        //            Worker updatedWorker = context.UpdateWorker(currentWorker, w);
+
+        //            if (updatedWorker == null)
+        //            {
+        //                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+        //                return null;
+        //            }
+
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+        //            return updatedWorker;
+
+        //        }
+        //        else
+        //        {
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+        //            return null;
+        //        }
+        //    }
+
+
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        return null;
+        //    }
+
+
+        //}
+
+
+        //#endregion
+
+
+         #region User Update
+        [Route("UpdateUser")]
+        [HttpPost]
+        public User UpdateUser([FromBody] User user)
+        {
+
+            if (user == null)
+            {
+                Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+                return null;
+            }
+
+            User currentUser = HttpContext.Session.GetObject<User>("theUser");
+
+            //Check if user logged in and its ID is the same as the contact user ID
+            if (currentUser != null && currentUser.Id == user.Id)
+            {
+                User updatedUser = context.UpdateUser(currentUser, user);
+
+                if (updatedUser == null)
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return null;
+                }
+
+                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                return updatedUser;
+
+            }
+            else
+            {
+                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                return null;
+            }
+        }
+        #endregion
+
+
     }
 
 }
