@@ -206,9 +206,13 @@ namespace IDA.Server.Controllers
                     Worker current = context.Workers.Where(cw => cw.Id == currentWorker.Id).FirstOrDefault();
                     if (current != null)
                     {
-                        current.AvailbleUntil = (DateTime)currentWorker.AvailbleUntil;
+                        current.AvailbleUntil = d;
+                        currentWorker.AvailbleUntil = d;
                         context.SaveChanges();
                         Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+
+                        //Save worker back to the cookie
+                        HttpContext.Session.SetObject("theUser", currentWorker);
                         return true;
 
                     }
