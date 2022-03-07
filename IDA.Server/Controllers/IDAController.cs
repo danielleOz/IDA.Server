@@ -36,8 +36,10 @@ namespace IDA.Server.Controllers
         [HttpGet]
         public User Login([FromQuery] string email, [FromQuery] string pass)
         {
+            try 
+            { 
             User user = context.Login(email, pass);
-            
+
             //Check user name and password
             if (user != null)
             {
@@ -79,6 +81,13 @@ namespace IDA.Server.Controllers
                 Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
                 return null;
             }
+
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
         }
         #endregion
 
@@ -98,40 +107,49 @@ namespace IDA.Server.Controllers
         [HttpPost]
         public WorkerDto WorkerRegister([FromBody] WorkerDto w)
         {
-            if (w != null) 
+            try
             {
-                User u = new User
+                if (w != null)
                 {
-                    Id = w.Id,
-                    Email = w.Email,
-                    FirstName = w.FirstName,
-                    LastName = w.LastName,
-                    UserPswd = w.UserPswd,
-                    City = w.City,
-                    Street = w.Street,
-                    Apartment = w.Apartment,
-                    HouseNumber = w.HouseNumber,
-                    Birthday = w.Birthday,
-                    IsWorker = w.IsWorker,
-                };
-                Worker worker = new Worker
-                {
-                    Id = w.Id,
-                    AvailbleUntil = DateTime.MinValue,
-                    RadiusKm = w.RadiusKm,
-                    IdNavigation = u,
-                    WorkerServices=w.WorkerServices
-                    
-                };
-                this.context.WorkerRegister(worker);
+                    User u = new User
+                    {
+                        Id = w.Id,
+                        Email = w.Email,
+                        FirstName = w.FirstName,
+                        LastName = w.LastName,
+                        UserPswd = w.UserPswd,
+                        City = w.City,
+                        Street = w.Street,
+                        Apartment = w.Apartment,
+                        HouseNumber = w.HouseNumber,
+                        Birthday = w.Birthday,
+                        IsWorker = w.IsWorker,
+                    };
+                    Worker worker = new Worker
+                    {
+                        Id = w.Id,
+                        AvailbleUntil = DateTime.MinValue,
+                        RadiusKm = w.RadiusKm,
+                        IdNavigation = u,
+                        WorkerServices = w.WorkerServices
 
-                HttpContext.Session.SetObject("theUser", w);
-                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-                return w;
+                    };
+                    this.context.WorkerRegister(worker);
+
+                    HttpContext.Session.SetObject("theUser", w);
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                    return w;
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return null;
+                }
             }
-            else
+
+            catch (Exception e)
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                Console.WriteLine(e.Message);
                 return null;
             }
 
@@ -144,30 +162,39 @@ namespace IDA.Server.Controllers
         [HttpPost]
         public User UserRegister([FromBody] User u)
         {
-            if (u != null)
+            try
             {
-                try
+                if (u != null)
                 {
-                    u = this.context.UserRegistration(u);
-                    HttpContext.Session.SetObject("theUser", u);
-                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-                    return u;
+                    try
+                    {
+                        u = this.context.UserRegistration(u);
+                        HttpContext.Session.SetObject("theUser", u);
+                        Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                        return u;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                        return null;
+                    }
+
                 }
-                catch (Exception e) 
+                else
                 {
-                    Console.WriteLine(e.Message);
-                    Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
                     return null;
                 }
-               
             }
-            else
+            catch (Exception e)
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                Console.WriteLine(e.Message);
                 return null;
             }
 
         }
+
         #endregion
 
 
@@ -176,18 +203,30 @@ namespace IDA.Server.Controllers
         [HttpGet]
         public bool IsEmailExist([FromQuery] string email)
         {
-            bool isExist = this.context.EmailExist(email);
-            if (isExist)
+            try
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-                return true;
+                bool isExist = this.context.EmailExist(email);
+                if (isExist)
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                    return true;
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return false;
+                }
             }
-            else
+
+            catch (Exception e)
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                Console.WriteLine(e.Message);
                 return false;
             }
+
+
         }
+
         #endregion
 
 
@@ -228,12 +267,12 @@ namespace IDA.Server.Controllers
                     return false;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                Console.WriteLine(e.Message);
                 return false;
             }
-            
+
         }
         #endregion
 
