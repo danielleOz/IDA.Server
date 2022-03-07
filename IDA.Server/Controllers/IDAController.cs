@@ -235,7 +235,7 @@ namespace IDA.Server.Controllers
         [Route("UpdateWorkerAvailbilty")]
         [HttpPost]
         public bool UpdateWorkerAvailbilty([FromBody] DateTime d)//..
-        {
+        { 
             try
             {
                 WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
