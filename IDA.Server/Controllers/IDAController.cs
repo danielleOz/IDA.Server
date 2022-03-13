@@ -321,14 +321,12 @@ namespace IDA.Server.Controllers
         //{
         //    try
         //    {
-        //        if (w == null)
+        //        if (w != null)
         //        {
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
-        //            return null;
-        //        }
 
 
-        //        Worker currentWorker = HttpContext.Session.GetObject<Worker>("theWorker");
+        //         WorkerDto NewWorker = HttpContext.Session.GetObject<WorkerDto>("theWorker");
+        //        Worker currentWorker =
 
         //        //Check if user logged in and its ID is the same as the contact user ID
         //        if (currentWorker != null && currentWorker.Id == w.Id)
@@ -366,7 +364,7 @@ namespace IDA.Server.Controllers
         //#endregion
 
 
-         #region User Update
+        #region User Update
         [Route("UpdateUser")]
         [HttpPost]
         public User UpdateUser([FromBody] User user)
