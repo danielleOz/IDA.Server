@@ -16,7 +16,10 @@ namespace IDA.ServerBL.Models
         {
             try
             {
-                return this.Users.Where(u => u.Email == email && u.UserPswd == pswd).FirstOrDefault();
+                return this.Users.Where(u => u.Email == email && u.UserPswd == pswd)
+                    .Include(u => u.JobOffers)
+                    .Include(u => u.ChatMessageRecievers)
+                    .Include(u=> u.ChatMessageSenders).FirstOrDefault();
             }
 
             catch (Exception e)

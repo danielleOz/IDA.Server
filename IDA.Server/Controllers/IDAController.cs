@@ -44,7 +44,10 @@ namespace IDA.Server.Controllers
                 //Check user name and password
                 if (user != null)
                 {
-                    Worker w = context.Workers.Where(w => w.Id == user.Id).FirstOrDefault();
+                    Worker w = context.Workers.Where(w => w.Id == user.Id)
+                        .Include(u => u.JobOffers)
+                        .Include(u => u.WorkerServices)
+                        .FirstOrDefault();
                     if (w == null)
                         HttpContext.Session.SetObject("theUser", user);
                     else
@@ -64,7 +67,9 @@ namespace IDA.Server.Controllers
                             IsWorker = user.IsWorker,
                             //IsAvailble = w.IsAvailble,
                             AvailbleUntil = w.AvailbleUntil,
-                            RadiusKm = w.RadiusKm
+                            RadiusKm = w.RadiusKm,
+                            WorkerJobOffers = w.JobOffers,
+                            WorkerServices = w.WorkerServices
                         };
 
                         HttpContext.Session.SetObject("theUser", worker);
