@@ -179,6 +179,34 @@ INSERT INTO [dbo].[Service]
 
 GO
 
+INSERT INTO [dbo].[JobOffer]
+           (
+           [ServiceId],
+           [ChosenWorkerId],
+           [UserId], 
+           [StatusId], 
+           [PublishDate],
+           [Description],
+           [WorkerReviewDescriptipon], 
+           [WorkerReviewDate], 
+           [WorkerReviewRate]
+           )
+         
+     VALUES
+          ( 1,
+           2,
+           1,
+           1,
+           '1978-02-21',
+           'rrr',
+           'was thery good',
+           '1978-02-22',
+           5 )
+
+
+GO
+
+
 
 
 
