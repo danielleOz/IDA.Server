@@ -118,7 +118,7 @@ INSERT INTO [dbo].[User]
            ('danielle.oz@gmail.com'
            ,'danielle'
            ,'oz'
-           ,'1234'
+           ,'123456'
            ,'telaviv'
            ,'8'
            ,'Ben Yehuda'
