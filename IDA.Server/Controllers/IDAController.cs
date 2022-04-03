@@ -71,6 +71,7 @@ namespace IDA.Server.Controllers
                             WorkerJobOffers = w.JobOffers,
                             WorkerServices = w.WorkerServices
                         };
+                        
 
                         HttpContext.Session.SetObject("theUser", worker);
                         user = worker;
@@ -107,6 +108,43 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+        #region Get Worker
+        [Route("GetWorker")]
+        [HttpGet]
+        public WorkerDto GetWorker([FromQuery] int workerId)
+        {
+            Worker w = context.Workers.Where(w => w.Id == workerId)
+                        .Include(u => u.IdNavigation)
+                        .Include(u => u.JobOffers)
+                        .Include(u => u.WorkerServices)
+                        .FirstOrDefault();
+            if (w == null)
+                return null;
+            else
+            {
+                WorkerDto worker = new WorkerDto()
+                {
+                    Id = w.IdNavigation.Id,
+                    Email = w.IdNavigation.Email,
+                    FirstName = w.IdNavigation.FirstName,
+                    LastName = w.IdNavigation.LastName,
+                    UserPswd = w.IdNavigation.UserPswd,
+                    City = w.IdNavigation.City,
+                    Street = w.IdNavigation.Street,
+                    Apartment = w.IdNavigation.Apartment,
+                    HouseNumber = w.IdNavigation.HouseNumber,
+                    Birthday = w.IdNavigation.Birthday,
+                    IsWorker = w.IdNavigation.IsWorker,
+                    //IsAvailble = w.IsAvailble,
+                    AvailbleUntil = w.AvailbleUntil,
+                    RadiusKm = w.RadiusKm,
+                    WorkerJobOffers = w.JobOffers,
+                    WorkerServices = w.WorkerServices
+                };
+                return worker;
+            }
+        }
+        #endregion
 
         #region Worker Register
         [Route("WorkerRegister")]

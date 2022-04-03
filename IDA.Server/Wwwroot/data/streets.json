@@ -1,869 +1,869 @@
 [
-    {
-      "id": 12501,
-      "city_symbol": 9700,
-      "city_name": "הוד השרון",
-      "street_symbol": 205,
-      "street_name": "הבבלי"
-    },
-    {
-      "id": 12502,
-      "city_symbol": 9700,
-      "city_name": "הוד השרון",
-      "street_symbol": 233,
-      "street_name": "הבוסתן"
-    },
-    {
-      "id": 12503,
-      "city_symbol": 9700,
-      "city_name": "הוד השרון",
-      "street_symbol": 402,
-      "street_name": "הבנאי"
-    },
+  {
+    "id": 12501,
+    "city_symbol": 9700,
+    "city_name": "hod hasharon",
+    "street_symbol": 205,
+    "street_name": "haBavli"
+  },
+  {
+    "id": 12502,
+    "city_symbol": 9700,
+    "city_name": "hod hasharon",
+    "street_symbol": 233,
+    "street_name": "habustan"
+  },
+  {
+    "id": 12503,
+    "city_symbol": 9700,
+    "city_name": "hod hasharon",
+    "street_symbol": 402,
+    "street_name": "ha-Banai"
+  },
     {
       "id": 12504,
       "city_symbol": 9700,
-      "city_name": "הוד השרון",
+      "city_name": "hod hasharon",
       "street_symbol": 111,
-      "street_name": "הבנים"
+      "street_name": "habanim"
     },
     {
       "id": 12505,
       "city_symbol": 9700,
-      "city_name": "הוד השרון",
+      "city_name": "hod hasharon",
       "street_symbol": 211,
-      "street_name": "הברוש"
+      "street_name": "ha brosh"
     },
-    {
-      "id": 12506,
-      "city_symbol": 9700,
-      "city_name": "הוד השרון",
-      "street_symbol": 370,
-      "street_name": "הבריח"
-    },
+  {
+    "id": 12506,
+    "city_symbol": 9700,
+    "city_name": "hod hasharon",
+    "street_symbol": 370,
+    "street_name": "ha briah"
+  },
     {
       "id": 12507,
       "city_symbol": 9700,
-      "city_name": "הוד השרון",
+      "city_name": "hod hasharon",
       "street_symbol": 227,
       "street_name": "הגאולה"
     },
     {
       "id": 12508,
       "city_symbol": 9700,
-      "city_name": "הוד השרון",
+      "city_name": "hod hasharon",
       "street_symbol": 333,
-      "street_name": "הגולן"
+      "street_name": "Ha Golan"
     },
     {
       "id": 10524,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 609,
-      "street_name": "המאבק"
+      "street_name": "ha mahavak"
     },
     {
       "id": 10525,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 616,
-      "street_name": "המאור"
+      "street_name": "ha maor"
     },
     {
       "id": 10526,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 205,
       "street_name": "המבוא"
     },
     {
       "id": 10527,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 507,
       "street_name": "המגדל"
     },
     {
       "id": 10528,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 114,
       "street_name": "המורד"
     },
     {
       "id": 10529,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 401,
       "street_name": "המלבן"
     },
     {
       "id": 10530,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 126,
       "street_name": "המעגל"
     },
     {
       "id": 10531,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 115,
       "street_name": "המעורר"
     },
     {
       "id": 10532,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 312,
       "street_name": "המעין"
     },
     {
       "id": 10533,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 211,
       "street_name": "המעלות"
     },
     {
       "id": 10534,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 310,
       "street_name": "המפנה"
     },
     {
       "id": 10535,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 203,
       "street_name": "המרי"
     },
     {
       "id": 10536,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 502,
       "street_name": "הנגבה"
     },
     {
       "id": 10537,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 610,
       "street_name": "הנדיב"
     },
     {
       "id": 10538,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 105,
       "street_name": "הפועל הצעיר"
     },
     {
       "id": 10539,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 411,
       "street_name": "הפלמ\"ח"
     },
     {
       "id": 10540,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 506,
       "street_name": "הצנחנים"
     },
     {
       "id": 10541,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 213,
       "street_name": "הראל"
     },
     {
       "id": 10542,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 619,
       "street_name": "הרב צימבר"
     },
     {
       "id": 10543,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 622,
       "street_name": "הרצוג"
     },
     {
       "id": 10544,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 117,
       "street_name": "השומר"
     },
     {
       "id": 10545,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 124,
       "street_name": "השלבים"
     },
     {
       "id": 10546,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 122,
       "street_name": "השנים"
     },
     {
       "id": 10547,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 407,
       "street_name": "התע\"ש"
     },
     {
       "id": 10548,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 301,
       "street_name": "ויצמן"
     },
     {
       "id": 10549,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 308,
       "street_name": "ז'בוטינסקי"
     },
     {
       "id": 10550,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 519,
       "street_name": "ח\"ן"
     },
     {
       "id": 10551,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 111,
       "street_name": "חניתה"
     },
     {
       "id": 10552,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 634,
       "street_name": "טבנקין"
     },
     {
       "id": 10553,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 501,
       "street_name": "טיבר"
     },
     {
       "id": 10554,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 625,
       "street_name": "יבניאלי"
     },
     {
       "id": 10555,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 511,
       "street_name": "יד מרדכי"
     },
     {
       "id": 10556,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 636,
       "street_name": "ילדי טהרן"
     },
     {
       "id": 10557,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 612,
       "street_name": "ילין דוד"
     },
     {
       "id": 10558,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 125,
       "street_name": "יפה נוף"
     },
     {
       "id": 10559,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 132,
       "street_name": "יצחק"
     },
     {
       "id": 10560,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 302,
       "street_name": "יצחק שדה"
     },
     {
       "id": 10561,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 621,
       "street_name": "כורזין"
     },
     {
       "id": 10562,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6001,
       "street_name": "ככר נח"
     },
     {
       "id": 10563,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 306,
       "street_name": "כלנית"
     },
     {
       "id": 10564,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 218,
       "street_name": "כנרת"
     },
     {
       "id": 10565,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 608,
       "street_name": "כף גימל"
     },
     {
       "id": 10566,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 101,
       "street_name": "כצנלסון"
     },
     {
       "id": 10567,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 137,
       "street_name": "לביא"
     },
     {
       "id": 10568,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 408,
       "street_name": "לכיש"
     },
     {
       "id": 10569,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 611,
       "street_name": "מהרשק"
     },
     {
       "id": 10570,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 138,
       "street_name": "מורדי הגיטאות"
     },
     {
       "id": 10571,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 605,
       "street_name": "מנורה"
     },
     {
       "id": 10572,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 106,
       "street_name": "מנרה"
     },
     {
       "id": 10573,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 219,
       "street_name": "מסדה"
     },
     {
       "id": 10574,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 221,
       "street_name": "מעוז"
     },
     {
       "id": 10575,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 139,
       "street_name": "מעלה בועז"
     },
     {
       "id": 10576,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 319,
       "street_name": "מעלה יעקב"
     },
     {
       "id": 10577,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 606,
       "street_name": "מצולות ים"
     },
     {
       "id": 10578,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6511,
       "street_name": "מרכז עסקים דרום"
     },
     {
       "id": 10579,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 404,
       "street_name": "משגב עם"
     },
     {
       "id": 10580,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 627,
       "street_name": "משמר הירדן"
     },
     {
       "id": 10581,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 212,
       "street_name": "ניצנה"
     },
     {
       "id": 10582,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 637,
       "street_name": "נעמ\"ת"
     },
     {
       "id": 10583,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 309,
       "street_name": "נרקיס"
     },
     {
       "id": 10584,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 510,
       "street_name": "סירני אנצו"
     },
     {
       "id": 10585,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 123,
       "street_name": "סירקין"
     },
     {
       "id": 10586,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 113,
       "street_name": "סמ אליהו"
     },
     {
       "id": 10587,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 208,
       "street_name": "סמ אסירי ציון"
     },
     {
       "id": 10588,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 136,
       "street_name": "סמטת נחל"
     },
     {
       "id": 10589,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 134,
       "street_name": "סמטת צור"
     },
     {
       "id": 10590,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 512,
       "street_name": "סנש"
     },
     {
       "id": 10591,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 508,
       "street_name": "עברונה"
     },
     {
       "id": 10592,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 207,
       "street_name": "עין גדי"
     },
     {
       "id": 10593,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 406,
       "street_name": "עלית הנוער"
     },
     {
       "id": 10594,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 618,
       "street_name": "עמישב"
     },
     {
       "id": 10595,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 214,
       "street_name": "עמל"
     },
     {
       "id": 10596,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 103,
       "street_name": "ערבי נחל"
     },
     {
       "id": 10597,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 413,
       "street_name": "ערד"
     },
     {
       "id": 10598,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 127,
       "street_name": "פועלי הרכבת"
     },
     {
       "id": 10599,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 108,
       "street_name": "פטאי"
     },
     {
       "id": 10600,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 315,
       "street_name": "פינברג יעקב"
     },
     {
       "id": 10601,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 632,
       "street_name": "צביה"
     },
     {
       "id": 10602,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 314,
       "street_name": "צה\"ל"
     },
     {
       "id": 10603,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 604,
       "street_name": "צפרירים"
     },
     {
       "id": 10604,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 631,
       "street_name": "קבוץ גלויות"
     },
     {
       "id": 10605,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 320,
       "street_name": "קושניר"
     },
     {
       "id": 10606,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 119,
       "street_name": "קלעי"
     },
     {
       "id": 10607,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 624,
       "street_name": "קפלנסקי"
     },
     {
       "id": 10608,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 104,
       "street_name": "קרית יוסף"
     },
     {
       "id": 10609,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 633,
       "street_name": "קרן היסוד"
     },
     {
       "id": 10610,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 110,
       "street_name": "קרן קימת לישראל"
     },
     {
       "id": 10611,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 603,
       "street_name": "רביבים"
     },
     {
       "id": 10612,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 626,
       "street_name": "רודין אלישע"
     },
     {
       "id": 10613,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 129,
       "street_name": "רוטברג מאיר"
     },
     {
       "id": 10614,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 304,
       "street_name": "רותם"
     },
     {
       "id": 10615,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 516,
       "street_name": "רחל"
     },
     {
       "id": 10616,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 224,
       "street_name": "ריינס"
     },
     {
       "id": 10617,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 515,
       "street_name": "רייק"
     },
     {
       "id": 10618,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 503,
       "street_name": "רמב\"ם"
     },
     {
       "id": 10619,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 225,
       "street_name": "רמה"
     },
     {
       "id": 10620,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 504,
       "street_name": "רמז"
     },
     {
       "id": 10621,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 307,
       "street_name": "רקפת"
     },
     {
       "id": 10622,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6501,
       "street_name": "ש עובדי קופ\"ח"
     },
     {
       "id": 10623,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6502,
       "street_name": "ש קרת"
     },
     {
       "id": 10624,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6503,
       "street_name": "ש רוזנשטין"
     },
     {
       "id": 10625,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6504,
       "street_name": "ש שילר"
     },
     {
       "id": 10626,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 317,
       "street_name": "שד אפיקים"
     },
     {
       "id": 10627,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 311,
       "street_name": "שדה בוקר"
     },
     {
       "id": 10628,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6513,
       "street_name": "שיכוני דרום"
     },
     {
       "id": 10629,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 628,
       "street_name": "שילוב"
     },
     {
       "id": 10630,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 202,
       "street_name": "שינקין"
     },
     {
       "id": 10631,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6507,
       "street_name": "שכ ארלוזורוב"
     },
     {
       "id": 10632,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6509,
       "street_name": "שכ בורוכוב"
     },
     {
       "id": 10633,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6512,
       "street_name": "שכ עובדי חברת חשמל"
     },
     {
       "id": 10634,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6510,
       "street_name": "שכ פועלי הרכבת"
     },
     {
       "id": 10635,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6508,
       "street_name": "שכ קרית יוסף"
     },
     {
       "id": 10636,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 6506,
       "street_name": "שכ שיינקין"
     },
     {
       "id": 10637,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 615,
       "street_name": "שפירא ישראל"
     },
     {
       "id": 10638,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 303,
       "street_name": "שר אהרן"
     },
     {
       "id": 10639,
       "city_symbol": 6300,
-      "city_name": "גבעתיים",
+      "city_name": "giv'atayim",
       "street_symbol": 635,
       "street_name": "תפוצות ישראל"
     },
@@ -926,630 +926,630 @@
     {
       "id": 51619,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 295,
       "street_name": "שלונסקי"
     },
     {
       "id": 51620,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1336,
       "street_name": "שלוש"
     },
     {
       "id": 51621,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2401,
       "street_name": "שלושת החיצים"
     },
     {
       "id": 51622,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 825,
       "street_name": "שלזינגר"
     },
     {
       "id": 51623,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 710,
       "street_name": "שלמה המלך"
     },
     {
       "id": 51624,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2730,
       "street_name": "שלמון"
     },
     {
       "id": 51625,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1860,
       "street_name": "שם הגדולים"
     },
     {
       "id": 51626,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 317,
       "street_name": "שמגר"
     },
     {
       "id": 51627,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1716,
       "street_name": "שמואל בן עדיה"
     },
     {
       "id": 51628,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 526,
       "street_name": "שמואל הנגיד"
     },
     {
       "id": 51629,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1955,
       "street_name": "שמואל ירחינאי"
     },
     {
       "id": 51630,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2774,
       "street_name": "שמחה"
     },
     {
       "id": 51631,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1688,
       "street_name": "שמי יחיאל"
     },
     {
       "id": 51632,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 142,
       "street_name": "שמיר"
     },
     {
       "id": 51633,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1648,
       "street_name": "שמעון בן זומא"
     },
     {
       "id": 51634,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1649,
       "street_name": "שמעון בן עזאי"
     },
     {
       "id": 51635,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1705,
       "street_name": "שמעון הבורסקי"
     },
     {
       "id": 51636,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1645,
       "street_name": "שמעון הצדיק"
     },
     {
       "id": 51637,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 422,
       "street_name": "שמעון התרסי"
     },
     {
       "id": 51638,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 106,
       "street_name": "שמעוני"
     },
     {
       "id": 51639,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1646,
       "street_name": "שמעיה"
     },
     {
       "id": 51640,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 748,
       "street_name": "שמריהו לוין"
     },
     {
       "id": 51641,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1365,
       "street_name": "שמרלינג"
     },
     {
       "id": 51642,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 731,
       "street_name": "שמשון"
     },
     {
       "id": 51643,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1131,
       "street_name": "שניאור זלמן"
     },
     {
       "id": 51644,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1674,
       "street_name": "שניצלר"
     },
     {
       "id": 51645,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 4776,
       "street_name": "שניצר שמואל"
     },
     {
       "id": 51646,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 264,
       "street_name": "שניר"
     },
     {
       "id": 51647,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1441,
       "street_name": "שנקר אריה"
     },
     {
       "id": 51648,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2641,
       "street_name": "שער הגיא"
     },
     {
       "id": 51649,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 407,
       "street_name": "שער ציון"
     },
     {
       "id": 51650,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1756,
       "street_name": "שערי ניקנור"
     },
     {
       "id": 51651,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2380,
       "street_name": "שערי תשובה"
     },
     {
       "id": 51652,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 139,
       "street_name": "שפיה"
     },
     {
       "id": 51653,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 702,
       "street_name": "שפינוזה"
     },
     {
       "id": 51654,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2456,
       "street_name": "שפיר קליין"
     },
     {
       "id": 51655,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2628,
       "street_name": "שפירא ישראל"
     },
     {
       "id": 51656,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 747,
       "street_name": "שפירא צבי"
     },
     {
       "id": 51657,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1558,
       "street_name": "שפע טל"
     },
     {
       "id": 51658,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1537,
       "street_name": "שפרינצק"
     },
     {
       "id": 51659,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1708,
       "street_name": "שפתי ישנים"
     },
     {
       "id": 51660,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1551,
       "street_name": "שץ גגה גרשון"
     },
     {
       "id": 51661,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 3010,
       "street_name": "שקד"
     },
     {
       "id": 51662,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 4689,
       "street_name": "שרון אריה"
     },
     {
       "id": 51663,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1721,
       "street_name": "שריד"
     },
     {
       "id": 51664,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2998,
       "street_name": "שרים אליהו הרב"
     },
     {
       "id": 51665,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2159,
       "street_name": "שרירא גאון"
     },
     {
       "id": 51666,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 4126,
       "street_name": "שרמן משה"
     },
     {
       "id": 51667,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1306,
       "street_name": "שרעבי"
     },
     {
       "id": 51668,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 4084,
       "street_name": "שרעבי שלום"
     },
     {
       "id": 51669,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2819,
       "street_name": "שרשים"
     },
     {
       "id": 51670,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 906,
       "street_name": "שרת משה"
     },
     {
       "id": 51671,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2773,
       "street_name": "ששון"
     },
     {
       "id": 51672,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2815,
       "street_name": "שתולים"
     },
     {
       "id": 51673,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1836,
       "street_name": "שתי האחיות"
     },
     {
       "id": 51674,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 331,
       "street_name": "תבואות הארץ"
     },
     {
       "id": 51675,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 4525,
       "street_name": "תבין אלי"
     },
     {
       "id": 51676,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1966,
       "street_name": "תג'ר ציונה"
     },
     {
       "id": 51677,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2799,
       "street_name": "תדהר דוד"
     },
     {
       "id": 51678,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2527,
       "street_name": "תובל"
     },
     {
       "id": 51679,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 833,
       "street_name": "תוספתא"
     },
     {
       "id": 51680,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2523,
       "street_name": "תוצרת הארץ"
     },
     {
       "id": 51681,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1517,
       "street_name": "תושיה"
     },
     {
       "id": 51682,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1726,
       "street_name": "תות"
     },
     {
       "id": 51683,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1312,
       "street_name": "תחכמוני"
     },
     {
       "id": 51684,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2275,
       "street_name": "תחנה מרכזית"
     },
     {
       "id": 51685,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2320,
       "street_name": "תחנה מרכזית החדשה"
     },
     {
       "id": 51686,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 399,
       "street_name": "תירוש"
     },
     {
       "id": 51687,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 6503,
       "street_name": "תכנית ל"
     },
     {
       "id": 51688,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 9000,
-      "street_name": "תל אביב - יפו"
+      "street_name": "tel aviv - yafo"
     },
     {
       "id": 51689,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 217,
       "street_name": "תל ברוך"
     },
     {
       "id": 51690,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2173,
       "street_name": "תל גבורים"
     },
     {
       "id": 51691,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 741,
       "street_name": "תל חי"
     },
     {
       "id": 51692,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 6654,
       "street_name": "תל חיים"
     },
     {
       "id": 51693,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2820,
       "street_name": "תמוז"
     },
     {
       "id": 51694,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 4786,
       "street_name": "תמיר שמואל"
     },
     {
       "id": 51695,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2618,
       "street_name": "תמנע"
     },
     {
       "id": 51696,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1737,
       "street_name": "תמריר"
     },
     {
       "id": 51697,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2615,
       "street_name": "תעוז"
     },
     {
       "id": 51698,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1734,
       "street_name": "תפוח"
     },
     {
       "id": 51699,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2963,
       "street_name": "תקוע"
     },
     {
       "id": 51700,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2771,
       "street_name": "תרדיון"
     },
     {
       "id": 51701,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1213,
       "street_name": "תרמ\"ב"
     },
     {
       "id": 51702,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2395,
       "street_name": "תרפ\"א"
     },
     {
       "id": 51703,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1382,
       "street_name": "תרפט"
     },
     {
       "id": 51704,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1351,
       "street_name": "תרצ\"ו"
     },
     {
       "id": 51705,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 1623,
       "street_name": "תרצה"
     },
     {
       "id": 51706,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 931,
       "street_name": "תש\"ח"
     },
     {
       "id": 51707,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2772,
       "street_name": "תשבי"
     },
     {
       "id": 51708,
       "city_symbol": 5000,
-      "city_name": "תל אביב - יפו",
+      "city_name": "tel aviv - yafo",
       "street_symbol": 2822,
       "street_name": "תשרי"
     },
