@@ -21,7 +21,7 @@ namespace IDA.ServerBL.Models
                     .Include(u => u.ChatMessageRecievers)
                     .Include(u=> u.ChatMessageSenders).FirstOrDefault();
             }
-
+             
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
