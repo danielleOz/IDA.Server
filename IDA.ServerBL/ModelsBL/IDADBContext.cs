@@ -127,7 +127,21 @@ namespace IDA.ServerBL.Models
         //{
         //    try
         //    {
-               
+        //        worker curruntWorker = this.Workers
+        //        .Where(w => w.Id == worker.Id).FirstOrDefault();
+
+        //        currentUser.FirstName = updatedUser.FirstName;
+        //        currentUser.LastName = updatedUser.LastName;
+        //        currentUser.UserPswd = updatedUser.UserPswd;
+        //        currentUser.Birthday = updatedUser.Birthday;
+        //        currentUser.Apartment = updatedUser.Apartment;
+        //        currentUser.City = updatedUser.City;
+        //        currentUser.Street = updatedUser.Street;
+        //        currentUser.HouseNumber = updatedUser.HouseNumber;
+
+
+        //        this.SaveChanges();
+        //        return currentUser;
         //    }
         //    catch (Exception e)
         //    {

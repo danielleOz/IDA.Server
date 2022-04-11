@@ -323,15 +323,38 @@ namespace IDA.Server.Controllers
         //    {
         //        if (w != null)
         //        {
+        //            User u = new User
+        //            {
+        //                Id = w.Id,
+        //                Email = w.Email,
+        //                FirstName = w.FirstName,
+        //                LastName = w.LastName,
+        //                UserPswd = w.UserPswd,
+        //                City = w.City,
+        //                Street = w.Street,
+        //                Apartment = w.Apartment,
+        //                HouseNumber = w.HouseNumber,
+        //                Birthday = w.Birthday,
+        //                IsWorker = w.IsWorker,
+        //            };
+        //            Worker worker = new Worker
+        //            {
+        //                Id = w.Id,
+        //                AvailbleUntil = (DateTime)w.AvailbleUntil,
+        //                RadiusKm = w.RadiusKm,
+        //                WorkerServices = w.WorkerServices
+        //            };
 
-
-        //         WorkerDto NewWorker = HttpContext.Session.GetObject<WorkerDto>("theWorker");
-        //        Worker currentWorker =
-
-        //        //Check if user logged in and its ID is the same as the contact user ID
-        //        if (currentWorker != null && currentWorker.Id == w.Id)
-        //        {
         //            Worker updatedWorker = context.UpdateWorker(currentWorker, w);
+
+        //            if (updatedWorker == null)
+        //            {
+        //                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+        //                return null;
+        //            }
+
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+        //            return updatedWorker; Worker updatedWorker = context.UpdateWorker(currentWorker, w);
 
         //            if (updatedWorker == null)
         //            {
