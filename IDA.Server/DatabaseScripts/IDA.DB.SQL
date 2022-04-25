@@ -8,7 +8,7 @@ create Database [IDA.DB]
 go
 
 Use [IDA.DB]
-Go
+Go 
 
 CREATE TABLE "User"(
     Id int identity primary key NOT NULL,

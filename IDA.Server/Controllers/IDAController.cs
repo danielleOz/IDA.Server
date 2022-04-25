@@ -7,10 +7,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using IDA.Server.DTO;
-
+using IDA.Server.Helper;
 //Add the below
 using IDA.ServerBL.Models;
 using System.IO;
+
 
 namespace IDA.Server.Controllers
 {
@@ -145,6 +146,7 @@ namespace IDA.Server.Controllers
             }
         }
         #endregion
+
 
         #region Worker Register
         [Route("WorkerRegister")]
@@ -325,7 +327,7 @@ namespace IDA.Server.Controllers
 
         [Route("GetAllWR")]
         [HttpGet]
-        public List<JobOffer> GetAllWR()
+        public List<JobOfferDto> GetAllWR()
         {
             try
             {
@@ -333,7 +335,14 @@ namespace IDA.Server.Controllers
                 //Check if user logged in and its ID is the same as the contact user ID
                 if (user != null && user.IsWorker)
                 {
-                    return context.JobOffers.ToList();
+                    List<JobOffer> jobOffers;
+                    List<JobOfferDto> jobOffersDto = new List<JobOfferDto>();
+                    jobOffers= context.JobOffers.Include(j => j.Service).Include(j => j.Status).Include(j => j.User).Include(j=>j.ChosenWorker.IdNavigation).ToList();
+                    foreach(JobOffer j in jobOffers)
+                    {
+                        jobOffersDto.Add(new JobOfferDto(j));
+                    }
+                    return jobOffersDto;
                 }
                 else
                 {
@@ -418,9 +427,9 @@ namespace IDA.Server.Controllers
         //        return null;
         //    }
 
-
+         
         //}
-
+         
 
         //#endregion
 
@@ -461,6 +470,58 @@ namespace IDA.Server.Controllers
             }
         }
         #endregion
+
+
+        //#region email sender
+        //[Route("SendEmail")]
+        //[HttpPost]
+        //public void SendEmail([FromBody] User user)
+        //{
+
+        //    if (user == null)
+        //    {
+        //        Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+        //        return;
+        //    }
+
+        //    User currentUser = HttpContext.Session.GetObject<User>("theUser");
+
+        //    //Check if user logged in and its ID is the same as the contact user ID
+        //    if (currentUser != null && currentUser.Id == user.Id)
+        //    {
+        //        User updatedUser = context.UpdateUser(currentUser, user);
+
+        //        if (updatedUser == null)
+        //        {
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+        //            return;
+        //        }
+
+        //        if (user.IsWorker)
+        //        {
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+
+        //            string v = $"Hi {user.FirstName} you have a new job offer to accept it please...";
+        //            EmailSender.SendEmail("new job offer!", v, $"{user.Email}", $"{user.FirstName}", "<ida.app.mail@gmail.com>", "IDA App", "030904do", "smtp.gmail.com");
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            string v = $"Hi {user.FirstName} you have a new job offer to accept it please...";
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+        //            EmailSender.SendEmail("new job offer!", v, $"{user.Email}", $"{user.FirstName}", "<ida.app.mail@gmail.com>", "IDA App", "030904do", "smtp.gmail.com");
+        //            return;
+        //        }
+
+
+        //    }
+        //    else
+        //    {
+        //        Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+        //        return;
+        //    }
+        //}
+        //#endregion
 
 
     }
