@@ -19,7 +19,7 @@ namespace IDA.Server.Controllers
     [ApiController]
     public class IDAController : ControllerBase
     {
-        IDADBContext context;
+        IDADBContext context; 
         public IDAController(IDADBContext context)
         {
             this.context = context;
@@ -523,6 +523,42 @@ namespace IDA.Server.Controllers
         //}
         //#endregion
 
+        #region get workers reviews
+
+        [Route("GetAvailableWorkrs")]
+        [HttpGet]
+        public List<WorkerDto> GetAvailableWorkrs()
+        {
+            try
+            {
+                User user = HttpContext.Session.GetObject<User>("theUser");
+                //Check if user logged in 
+                if (user != null)
+                {
+                    List<Worker> workers = context.Workers.Where(w => w.AvailbleUntil >= DateTime.Now)
+                        .Include(w => w.IdNavigation)
+                        .Include(w => w.WorkerServices)
+                        .ThenInclude(s=> s.Service).ToList();
+                    List<WorkerDto> workersDto = new List<WorkerDto>();
+                    foreach (Worker w in workers)
+                        workersDto.Add(new WorkerDto(w));
+                    return workersDto;
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+
+        #endregion
 
     }
 
