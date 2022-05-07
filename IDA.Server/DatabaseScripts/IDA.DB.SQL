@@ -67,8 +67,11 @@ CREATE TABLE "JobOfferStatus"(
     "Description" NVARCHAR(255) NOT NULL
 );
 
-INSERT INTO JobOfferStatus VALUES (1, 'New')
-INSERT INTO JobOfferStatus VALUES (2, 'Closed')
+INSERT INTO JobOfferStatus VALUES (0, 'Waiting')
+INSERT INTO JobOfferStatus VALUES (2, 'Approved')
+INSERT INTO JobOfferStatus VALUES (1, 'Processing')
+INSERT INTO JobOfferStatus VALUES (2, 'Finished')
+
 
 CREATE TABLE ChatMessage (
   Id int identity primary key not null,
@@ -205,6 +208,7 @@ INSERT INTO [dbo].[JobOffer]
 
 
 GO
+
 
 
 
