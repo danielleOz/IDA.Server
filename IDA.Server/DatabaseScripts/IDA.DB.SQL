@@ -68,9 +68,9 @@ CREATE TABLE "JobOfferStatus"(
 );
 
 INSERT INTO JobOfferStatus VALUES (0, 'Waiting')
-INSERT INTO JobOfferStatus VALUES (2, 'Approved')
-INSERT INTO JobOfferStatus VALUES (1, 'Processing')
-INSERT INTO JobOfferStatus VALUES (2, 'Finished')
+INSERT INTO JobOfferStatus VALUES (1, 'Approved')
+INSERT INTO JobOfferStatus VALUES (2, 'Processing')
+INSERT INTO JobOfferStatus VALUES (3, 'Finished')
 
 
 CREATE TABLE ChatMessage (

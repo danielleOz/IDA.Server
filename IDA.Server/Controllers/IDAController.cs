@@ -523,8 +523,8 @@ namespace IDA.Server.Controllers
         //}
         //#endregion
 
-        #region get workers reviews
-
+        #region get workers reviews 
+          
         [Route("GetAvailableWorkrs")]
         [HttpGet]
         public List<WorkerDto> GetAvailableWorkrs()
@@ -539,7 +539,7 @@ namespace IDA.Server.Controllers
                         .Include(w => w.IdNavigation)
                         .Include(w => w.WorkerServices)
                         .ThenInclude(s=> s.Service).ToList();
-                    List<WorkerDto> workersDto = new List<WorkerDto>();
+                    List<WorkerDto> workersDto = new List<WorkerDto>(); 
                     foreach (Worker w in workers)
                         workersDto.Add(new WorkerDto(w));
                     return workersDto;
