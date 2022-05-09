@@ -209,6 +209,26 @@ INSERT INTO [dbo].[JobOffer]
 
 GO
 
+UPDATE [dbo].[Worker]
+           
+           Set [AvailbleUntil]='2022-05-09 17:00:00', RadiusKM=2
+         where Id=2  
+         
+
+GO
+
+INSERT INTO [WorkerService]
+
+(
+[WorkerId],
+[ServiceId])
+
+VALUES
+(
+2,
+1)
+
+
 
 
 
