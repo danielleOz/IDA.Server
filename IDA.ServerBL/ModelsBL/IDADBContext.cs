@@ -151,6 +151,24 @@ namespace IDA.ServerBL.Models
         //}
         //#endregion
 
+        #region job offer
+        public JobOffer JobOffer(JobOffer j)
+        {
+            try
+            {
+                this.JobOffers.Add(j);
+                this.SaveChanges();
+                return j;
+            }
 
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+        #endregion
     }
 }

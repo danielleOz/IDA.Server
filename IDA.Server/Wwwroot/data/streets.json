@@ -1413,27 +1413,27 @@
       "street_symbol": 9000,
       "street_name": "tel aviv - yafo"
     },
-    {
-      "id": 51689,
-      "city_symbol": 5000,
-      "city_name": "tel aviv - yafo",
-      "street_symbol": 217,
-      "street_name": "תל ברוך"
-    },
-    {
-      "id": 51690,
-      "city_symbol": 5000,
-      "city_name": "tel aviv - yafo",
-      "street_symbol": 2173,
-      "street_name": "תל גבורים"
-    },
-    {
-      "id": 51691,
-      "city_symbol": 5000,
-      "city_name": "tel aviv - yafo",
-      "street_symbol": 741,
-      "street_name": "תל חי"
-    },
+  {
+    "id": 51689,
+    "city_symbol": 5000,
+    "city_name": "tel aviv - yafo",
+    "street_symbol": 217,
+    "street_name": "Tel Baruch"
+  },
+  {
+    "id": 51690,
+    "city_symbol": 5000,
+    "city_name": "tel aviv - yafo",
+    "street_symbol": 2173,
+    "street_name": "Tel Giborim"
+  },
+  {
+    "id": 51691,
+    "city_symbol": 5000,
+    "city_name": "tel aviv - yafo",
+    "street_symbol": 741,
+    "street_name": "Tel Hai"
+  },
     {
       "id": 51692,
       "city_symbol": 5000,

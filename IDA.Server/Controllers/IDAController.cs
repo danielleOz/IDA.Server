@@ -559,6 +559,50 @@ namespace IDA.Server.Controllers
 
 
         #endregion
+        
+        #region Job Offer
+        [Route("JobOffer")]
+        [HttpPost]
+        public JobOfferDto JobOffer([FromBody] JobOfferDto j)
+        {
+            try
+            {
+                if (j != null)
+                {
+                    JobOffer Joboffer = new JobOffer
+                    {
+                        UserId = j.UserId,
+                        ChosenWorkerId = j.ChosenWorkerId,
+                        Description = j.Description,
+                        PublishDate = j.PublishDate,
+                        ServiceId = j.ServiceId,
+                        StatusId = j.StatusId,                      
+                        WorkerReviewDate = j.WorkerReviewDate,
+                        WorkerReviewRate = j.WorkerReviewRate,
+                        WorkerReviewDescriptipon = j.WorkerReviewDescriptipon
+                    };
+                    
+                    this.context.JobOffer(Joboffer);
+
+                    HttpContext.Session.SetObject("theJobOffer", j);
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                    return j;
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return null;
+                }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+        #endregion
 
     }
 

@@ -118,17 +118,18 @@ INSERT INTO [dbo].[User]
            ,[Birthday]
            ,[IsWorker])
      VALUES
-           ('danielle.oz@gmail.com'
+           ('danielle.oz.do@gmail.com'
            ,'danielle'
            ,'oz'
            ,'123456'
-           ,'telaviv'
+           ,'hod hasharon'
            ,'8'
-           ,'Ben Yehuda'
-           ,'19'
+           ,'haBavli'
+           ,'1'
            ,'1978-02-21'
            ,'false')
 GO
+
 
 INSERT INTO [dbo].[User]
            ([Email]
@@ -146,9 +147,9 @@ INSERT INTO [dbo].[User]
            ,'www'
            ,'www'
            ,'123456'
-           ,'telaviv'
+           ,'hod hasharon'
            ,'8'
-           ,'Ben Yehuda'
+           ,'haBavli'
            ,'19'
            ,'1978-02-21'
            ,'true')
@@ -228,6 +229,29 @@ VALUES
 2,
 1)
 
+INSERT INTO [dbo].[User]
+           ([Email]
+           ,[FirstName]
+           ,[LastName]
+           ,[UserPswd]
+           ,[City]
+           ,[Apartment]
+           ,[Street]
+           ,[HouseNumber]
+           ,[Birthday]
+           ,[IsWorker])
+     VALUES
+           ('worker@worker.com'
+           ,'worker'
+           ,'worker'
+           ,'123456'
+           ,'tel aviv - yafo'
+           ,'8'
+           ,'Tel Baruch'
+           ,'19'
+           ,'1978-02-21'
+           ,'true')
+GO
 
 
 
