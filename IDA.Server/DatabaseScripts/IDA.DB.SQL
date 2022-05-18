@@ -212,7 +212,7 @@ GO
 
 UPDATE [dbo].[Worker]
            
-           Set [AvailbleUntil]='2022-05-09 17:00:00', RadiusKM=2
+           Set [AvailbleUntil]='2022-07-29 17:00:00', RadiusKM=2
          where Id=2  
          
 
@@ -253,6 +253,13 @@ INSERT INTO [dbo].[User]
            ,'true')
 GO
 
+UPDATE [dbo].[Worker]
+           
+           Set [AvailbleUntil]='2022-07-29 17:00:00', RadiusKM=2
+         where Id=3  
+         
+
+GO
 
 
 
