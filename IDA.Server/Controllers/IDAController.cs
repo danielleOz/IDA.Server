@@ -523,7 +523,7 @@ namespace IDA.Server.Controllers
         //}
         //#endregion
 
-        #region get workers reviews 
+        #region get availble workers 
           
         [Route("GetAvailableWorkrs")]
         [HttpGet]
