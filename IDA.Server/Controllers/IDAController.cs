@@ -433,7 +433,6 @@ namespace IDA.Server.Controllers
 
         //#endregion
 
-
         #region User Update
         [Route("UpdateUser")]
         [HttpPost]
@@ -470,7 +469,6 @@ namespace IDA.Server.Controllers
             }
         }
         #endregion
-
 
         //#region email sender
         //[Route("SendEmail")]
@@ -604,6 +602,7 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+       
     }
 
 }

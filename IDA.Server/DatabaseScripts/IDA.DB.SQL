@@ -69,8 +69,8 @@ CREATE TABLE "JobOfferStatus"(
 
 INSERT INTO JobOfferStatus VALUES (0, 'Waiting')
 INSERT INTO JobOfferStatus VALUES (1, 'Approved')
-INSERT INTO JobOfferStatus VALUES (2, 'Processing')
-INSERT INTO JobOfferStatus VALUES (3, 'Finished')
+INSERT INTO JobOfferStatus VALUES (2, 'Finished')
+
 
 
 CREATE TABLE ChatMessage (
@@ -200,7 +200,7 @@ INSERT INTO [dbo].[JobOffer]
           ( 1,
            2,
            1,
-           1,
+           2,
            '1978-02-21',
            'rrr',
            'was thery good',
@@ -253,6 +253,59 @@ INSERT INTO [dbo].[User]
            ,'true')
 GO
 
+INSERT INTO [dbo].[Worker]
+           ([id]
+           ,[RadiusKM]
+           ,[AvailbleUntil])
+ 
+     VALUES
+           (3
+           ,2
+           ,'1978-02-21')
+   
+GO
+
+INSERT INTO [WorkerService]
+
+(
+[WorkerId],
+[ServiceId])
+
+VALUES
+(
+3,
+2)
+
+
+INSERT INTO [dbo].[JobOffer]
+           (
+           [ServiceId],
+           [ChosenWorkerId],
+           [UserId], 
+           [StatusId], 
+           [PublishDate],
+           [Description],
+           [WorkerReviewDescriptipon], 
+           [WorkerReviewDate], 
+           [WorkerReviewRate]
+           )
+         
+     VALUES
+          ( 2,
+           3,
+           1,
+           2,
+           '2022-02-21',
+           'g',
+           ' was ok',
+           '2022-02-22',
+           4 )
+
+
+GO
+
+
+
 UPDATE [dbo].[Worker]
            
            Set [AvailbleUntil]='2022-07-29 17:00:00', RadiusKM=2
@@ -260,9 +313,6 @@ UPDATE [dbo].[Worker]
          
 
 GO
-
-
-
 
 
 
