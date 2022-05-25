@@ -573,7 +573,7 @@ namespace IDA.Server.Controllers
                     {
                         UserId = j.UserId,
                         ChosenWorkerId = j.ChosenWorkerId,
-                        Description = j.Description,
+                         Description = j.Description,
                         PublishDate = j.PublishDate,
                         ServiceId = j.ServiceId,
                         StatusId = j.StatusId,                      
