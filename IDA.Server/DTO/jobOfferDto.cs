@@ -24,7 +24,10 @@ namespace IDA.Server.DTO
         public virtual JobOfferStatus Status { get; set; }
         public virtual User User { get; set; }
 
-        public JobOfferDto() { }
+        public JobOfferDto()
+        {
+           
+            }
         public JobOfferDto(JobOffer job)
         {
             Id = job.Id;

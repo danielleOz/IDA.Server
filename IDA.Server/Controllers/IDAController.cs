@@ -22,7 +22,15 @@ namespace IDA.Server.Controllers
         IDADBContext context; 
         public IDAController(IDADBContext context)
         {
-            this.context = context;
+            try
+            {
+                this.context = context;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
 
         }
         /// <summary>
@@ -565,7 +573,7 @@ namespace IDA.Server.Controllers
         {
             try
             {
-                if (j != null)
+                if (j != null&&j.Id<=0)
                 {
                     JobOffer Joboffer = new JobOffer
                     {
@@ -579,18 +587,29 @@ namespace IDA.Server.Controllers
                         WorkerReviewRate = j.WorkerReviewRate,
                         WorkerReviewDescriptipon = j.WorkerReviewDescriptipon
                     };
-                    
                     this.context.JobOffer(Joboffer);
 
-                    HttpContext.Session.SetObject("theJobOffer", j);
-                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-                    return j;
+                }
+                else if(j.Id>0)
+                {
+                    JobOffer offer = context.JobOffers.Find(j.Id);
+                    offer.WorkerReviewDate = j.WorkerReviewDate;
+                    offer.WorkerReviewDescriptipon = j.WorkerReviewDescriptipon;
+                    offer.WorkerReviewRate = j.WorkerReviewRate;
+                    context.Entry(offer).State = EntityState.Modified;
+                    context.SaveChanges();
+
                 }
                 else
                 {
                     Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
                     return null;
                 }
+               
+
+                HttpContext.Session.SetObject("theJobOffer", j);
+                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                return j;
             }
 
             catch (Exception e)
@@ -602,6 +621,9 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+    
+          
+    
        
     }
 
