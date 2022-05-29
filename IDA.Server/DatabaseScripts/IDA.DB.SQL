@@ -203,7 +203,7 @@ INSERT INTO [dbo].[JobOffer]
            2,
            '1978-02-21',
            'rrr',
-           'was thery good',
+           'was very good',
            '1978-02-22',
            5 )
 
