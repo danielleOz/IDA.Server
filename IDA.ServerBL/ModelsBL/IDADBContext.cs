@@ -31,7 +31,6 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-
         #region Worker Register
         public Worker WorkerRegister(Worker w)
         {
@@ -55,8 +54,7 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-
-        #region Customer Register
+        #region user Register
         public User UserRegistration(User u)
         {
             try
@@ -76,7 +74,6 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-
         #region  Is Email Exist
         public bool EmailExist(string email)
         {
@@ -92,9 +89,8 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-
         #region Update User
-        public User UpdateUser(User user, User updatedUser)
+        public User UpdateUser( User updatedUser, User user)
         {
             try
             {
@@ -122,34 +118,34 @@ namespace IDA.ServerBL.Models
         }
         #endregion
 
-        //#region Update Worker
-        //public Worker UpdateWorker(Worker worker, Worker updatedWorker)
-        //{
-        //    try
-        //    {
-        //        worker curruntWorker = this.Workers
-        //        .Where(w => w.Id == worker.Id).FirstOrDefault();
+        #region worker User
+        public Worker UpdateWorker(Worker w, Worker updatedWorker)
+        {
+            try
+            {
 
-        //        currentUser.FirstName = updatedUser.FirstName;
-        //        currentUser.LastName = updatedUser.LastName;
-        //        currentUser.UserPswd = updatedUser.UserPswd;
-        //        currentUser.Birthday = updatedUser.Birthday;
-        //        currentUser.Apartment = updatedUser.Apartment;
-        //        currentUser.City = updatedUser.City;
-        //        currentUser.Street = updatedUser.Street;
-        //        currentUser.HouseNumber = updatedUser.HouseNumber;
+                w.IdNavigation.FirstName = updatedWorker.IdNavigation.FirstName;
+                w.IdNavigation.LastName = updatedWorker.IdNavigation.LastName;
+                w.IdNavigation.UserPswd = updatedWorker.IdNavigation.UserPswd;
+                w.IdNavigation.Birthday = updatedWorker.IdNavigation.Birthday;
+                w.IdNavigation.Apartment = updatedWorker.IdNavigation.Apartment;
+                w.IdNavigation.City = updatedWorker.IdNavigation.City;
+                w.IdNavigation.Street = updatedWorker.IdNavigation.Street;
+                w.IdNavigation.HouseNumber = updatedWorker.IdNavigation.HouseNumber;
+                w.RadiusKm = updatedWorker.RadiusKm;
+                w.WorkerServices = updatedWorker.WorkerServices;
 
 
-        //        this.SaveChanges();
-        //        return currentUser;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine(e.Message);
-        //        return null;
-        //    }
-        //}
-        //#endregion
+                this.SaveChanges();
+                return w;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        #endregion
 
         #region job offer
         public JobOffer JobOffer(JobOffer j)

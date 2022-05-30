@@ -11,7 +11,7 @@ using IDA.Server.Helper;
 //Add the below
 using IDA.ServerBL.Models;
 using System.IO;
-
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace IDA.Server.Controllers
 {
@@ -19,14 +19,14 @@ namespace IDA.Server.Controllers
     [ApiController]
     public class IDAController : ControllerBase
     {
-        IDADBContext context; 
+        IDADBContext context;
         public IDAController(IDADBContext context)
         {
             try
             {
                 this.context = context;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -39,7 +39,7 @@ namespace IDA.Server.Controllers
         /// <param name="userName"></param>
         /// <param name="pass"></param>
         /// <returns></returns>
-        
+
         #region Login
         [Route("Login")]
         [HttpGet]
@@ -80,7 +80,7 @@ namespace IDA.Server.Controllers
                             WorkerJobOffers = w.JobOffers,
                             WorkerServices = w.WorkerServices
                         };
-                        
+
 
                         HttpContext.Session.SetObject("theUser", worker);
                         user = worker;
@@ -147,7 +147,7 @@ namespace IDA.Server.Controllers
                     //IsAvailble = w.IsAvailble,
                     AvailbleUntil = w.AvailbleUntil,
                     RadiusKm = w.RadiusKm,
-                    WorkerJobOffers = w.JobOffers,
+                    JobOffers = w.JobOffers,
                     WorkerServices = w.WorkerServices
                 };
                 return worker;
@@ -345,8 +345,8 @@ namespace IDA.Server.Controllers
                 {
                     List<JobOffer> jobOffers;
                     List<JobOfferDto> jobOffersDto = new List<JobOfferDto>();
-                    jobOffers= context.JobOffers.Include(j => j.Service).Include(j => j.Status).Include(j => j.User).Include(j=>j.ChosenWorker.IdNavigation).ToList();
-                    foreach(JobOffer j in jobOffers)
+                    jobOffers = context.JobOffers.Include(j => j.Service).Include(j => j.Status).Include(j => j.User).Include(j => j.ChosenWorker.IdNavigation).ToList();
+                    foreach (JobOffer j in jobOffers)
                     {
                         jobOffersDto.Add(new JobOfferDto(j));
                     }
@@ -372,16 +372,25 @@ namespace IDA.Server.Controllers
         //#region Worker Update 
         //[Route("WorkerUpdate")]
         //[HttpPost]
-        //public Worker WorkerUpdate([FromBody] WorkerDto w)
+        //public WorkerDto WorkerUpdate([FromBody] WorkerDto w)
         //{
         //    try
         //    {
-        //        if (w != null)
+        //        if (w == null)
         //        {
-        //            User u = new User
+        //            Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+        //            return null;
+        //        }
+
+        //        WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
+
+        //        Worker current = context.Workers.Where(cw => cw.Id == currentWorker.Id).Include(w => w.IdNavigation).FirstOrDefault();
+        //        if (current != null)
+        //        {
+        //            Worker CurentW = new Worker()
         //            {
         //                Id = w.Id,
-        //                Email = w.Email,
+        //                IdNavigation.Email = w.Email,
         //                FirstName = w.FirstName,
         //                LastName = w.LastName,
         //                UserPswd = w.UserPswd,
@@ -390,35 +399,24 @@ namespace IDA.Server.Controllers
         //                Apartment = w.Apartment,
         //                HouseNumber = w.HouseNumber,
         //                Birthday = w.Birthday,
-        //                IsWorker = w.IsWorker,
-        //            };
-        //            Worker worker = new Worker
-        //            {
-        //                Id = w.Id,
+        //                IdNavigation.IsWorker = true,
         //                AvailbleUntil = (DateTime)w.AvailbleUntil,
         //                RadiusKm = w.RadiusKm,
+        //                JobOffers = w.JobOffers,
         //                WorkerServices = w.WorkerServices
         //            };
+        //            Worker updated = context.UpdateWorker(current, w);
 
-        //            Worker updatedWorker = context.UpdateWorker(currentWorker, w);
+        //            context.SaveChanges();
 
-        //            if (updatedWorker == null)
+        //            if (Updated == null)
         //            {
         //                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
         //                return null;
         //            }
 
         //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-        //            return updatedWorker; Worker updatedWorker = context.UpdateWorker(currentWorker, w);
-
-        //            if (updatedWorker == null)
-        //            {
-        //                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
-        //                return null;
-        //            }
-
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-        //            return updatedWorker;
+        //            return Updated;
 
         //        }
         //        else
@@ -426,18 +424,16 @@ namespace IDA.Server.Controllers
         //            Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
         //            return null;
         //        }
+              
         //    }
-
-
         //    catch (Exception e)
         //    {
         //        Console.WriteLine(e.Message);
         //        return null;
         //    }
 
-         
+
         //}
-         
 
         //#endregion
 
@@ -458,7 +454,7 @@ namespace IDA.Server.Controllers
             //Check if user logged in and its ID is the same as the contact user ID
             if (currentUser != null && currentUser.Id == user.Id)
             {
-                User updatedUser = context.UpdateUser(currentUser, user);
+                User updatedUser = context.UpdateUser(user, currentUser);
 
                 if (updatedUser == null)
                 {
@@ -530,7 +526,7 @@ namespace IDA.Server.Controllers
         //#endregion
 
         #region get availble workers 
-          
+
         [Route("GetAvailableWorkrs")]
         [HttpGet]
         public List<WorkerDto> GetAvailableWorkrs()
@@ -544,8 +540,8 @@ namespace IDA.Server.Controllers
                     List<Worker> workers = context.Workers.Where(w => w.AvailbleUntil >= DateTime.Now)
                         .Include(w => w.IdNavigation)
                         .Include(w => w.WorkerServices)
-                        .ThenInclude(s=> s.Service).ToList();
-                    List<WorkerDto> workersDto = new List<WorkerDto>(); 
+                        .ThenInclude(s => s.Service).ToList();
+                    List<WorkerDto> workersDto = new List<WorkerDto>();
                     foreach (Worker w in workers)
                         workersDto.Add(new WorkerDto(w));
                     return workersDto;
@@ -565,7 +561,7 @@ namespace IDA.Server.Controllers
 
 
         #endregion
-        
+
         #region Job Offer
         [Route("JobOffer")]
         [HttpPost]
@@ -573,16 +569,16 @@ namespace IDA.Server.Controllers
         {
             try
             {
-                if (j != null&&j.Id<=0)
+                if (j != null && j.Id <= 0)
                 {
                     JobOffer Joboffer = new JobOffer
                     {
                         UserId = j.UserId,
                         ChosenWorkerId = j.ChosenWorkerId,
-                         Description = j.Description,
+                        Description = j.Description,
                         PublishDate = j.PublishDate,
                         ServiceId = j.ServiceId,
-                        StatusId = j.StatusId,                      
+                        StatusId = j.StatusId,
                         WorkerReviewDate = j.WorkerReviewDate,
                         WorkerReviewRate = j.WorkerReviewRate,
                         WorkerReviewDescriptipon = j.WorkerReviewDescriptipon
@@ -590,7 +586,7 @@ namespace IDA.Server.Controllers
                     this.context.JobOffer(Joboffer);
 
                 }
-                else if(j.Id>0)
+                else if (j.Id > 0)
                 {
                     JobOffer offer = context.JobOffers.Find(j.Id);
                     offer.WorkerReviewDate = j.WorkerReviewDate;
@@ -605,7 +601,7 @@ namespace IDA.Server.Controllers
                     Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
                     return null;
                 }
-               
+
 
                 HttpContext.Session.SetObject("theJobOffer", j);
                 Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
@@ -621,10 +617,6 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
-    
-          
-    
-       
     }
 
 }
