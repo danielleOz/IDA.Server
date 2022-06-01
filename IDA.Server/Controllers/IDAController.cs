@@ -496,57 +496,6 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
-        //#region email sender
-        //[Route("SendEmail")]
-        //[HttpPost]
-        //public void SendEmail([FromBody] User user)
-        //{
-
-        //    if (user == null)
-        //    {
-        //        Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
-        //        return;
-        //    }
-
-        //    User currentUser = HttpContext.Session.GetObject<User>("theUser");
-
-        //    //Check if user logged in and its ID is the same as the contact user ID
-        //    if (currentUser != null && currentUser.Id == user.Id)
-        //    {
-        //        User updatedUser = context.UpdateUser(currentUser, user);
-
-        //        if (updatedUser == null)
-        //        {
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
-        //            return;
-        //        }
-
-        //        if (user.IsWorker)
-        //        {
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-
-        //            string v = $"Hi {user.FirstName} you have a new job offer to accept it please...";
-        //            EmailSender.SendEmail("new job offer!", v, $"{user.Email}", $"{user.FirstName}", "<ida.app.mail@gmail.com>", "IDA App", "030904do", "smtp.gmail.com");
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            string v = $"Hi {user.FirstName} you have a new job offer to accept it please...";
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-        //            EmailSender.SendEmail("new job offer!", v, $"{user.Email}", $"{user.FirstName}", "<ida.app.mail@gmail.com>", "IDA App", "030904do", "smtp.gmail.com");
-        //            return;
-        //        }
-
-
-        //    }
-        //    else
-        //    {
-        //        Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
-        //        return;
-        //    }
-        //}
-        //#endregion
-
         #region get availble workers 
 
         [Route("GetAvailableWorkrs")]
