@@ -124,7 +124,7 @@ namespace IDA.Server.Controllers
         {
             Worker w = context.Workers.Where(w => w.Id == workerId)
                         .Include(u => u.IdNavigation)
-                        .Include(u => u.JobOffers)
+                        .Include(u => u.JobOffers).ThenInclude(j=>j.Service)
                         .Include(u => u.WorkerServices)
                         .FirstOrDefault();
             if (w == null)
