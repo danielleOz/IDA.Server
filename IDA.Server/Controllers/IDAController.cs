@@ -369,73 +369,95 @@ namespace IDA.Server.Controllers
         #endregion
 
 
-        //#region Worker Update 
-        //[Route("WorkerUpdate")]
-        //[HttpPost]
-        //public WorkerDto WorkerUpdate([FromBody] WorkerDto w)
-        //{
-        //    try
-        //    {
-        //        if (w == null)
-        //        {
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
-        //            return null;
-        //        }
+        #region Worker Update 
+        [Route("WorkerUpdate")]
+        [HttpPost]
+        public bool WorkerUpdate([FromBody] WorkerDto w)
+        {
+            try
+            {
+                if (w == null)
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+                    return false;
+                }
 
-        //        WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
+                WorkerDto currentWorker = HttpContext.Session.GetObject<WorkerDto>("theUser");
 
-        //        Worker current = context.Workers.Where(cw => cw.Id == currentWorker.Id).Include(w => w.IdNavigation).FirstOrDefault();
-        //        if (current != null)
-        //        {
-        //            Worker CurentW = new Worker()
-        //            {
-        //                Id = w.Id,
-        //                IdNavigation.Email = w.Email,
-        //                FirstName = w.FirstName,
-        //                LastName = w.LastName,
-        //                UserPswd = w.UserPswd,
-        //                City = w.City,
-        //                Street = w.Street,
-        //                Apartment = w.Apartment,
-        //                HouseNumber = w.HouseNumber,
-        //                Birthday = w.Birthday,
-        //                IdNavigation.IsWorker = true,
-        //                AvailbleUntil = (DateTime)w.AvailbleUntil,
-        //                RadiusKm = w.RadiusKm,
-        //                JobOffers = w.JobOffers,
-        //                WorkerServices = w.WorkerServices
-        //            };
-        //            Worker updated = context.UpdateWorker(current, w);
+                Worker current = context.Workers.Where(cw => cw.Id == currentWorker.Id).Include(w => w.IdNavigation).Include(w=>w.WorkerServices).ThenInclude(ws=>ws.Service).FirstOrDefault();
+                if (current != null)
+                {
 
-        //            context.SaveChanges();
+                    current.RadiusKm = w.RadiusKm;
+                   // current.WorkerServices = w.WorkerServices;
+                    current.IdNavigation.Email = w.Email;
+                    current.IdNavigation.FirstName = w.FirstName;
+                    current.IdNavigation.LastName = w.LastName;
+                    current.IdNavigation.Birthday = w.Birthday;
+                    current.IdNavigation.Apartment = w.Apartment;
+                    current.IdNavigation.City = w.City;
+                    current.IdNavigation.HouseNumber = w.HouseNumber;
+                    current.IdNavigation.Street = w.Street;
+                    
+                    //הוספת השירותים החדשים
+                    foreach(WorkerService s in w.WorkerServices)
+                    {
+                        bool found = false;
+                        foreach(WorkerService cs in current.WorkerServices)
+                        {
+                            if (cs.Service.Id == s.Service.Id)
+                            {
+                                found = true;
+                                context.Entry(cs).State = EntityState.Unchanged;
+                            }
+                        }
+                        if (!found)
+                        {
+                            current.WorkerServices.Add(s);
+                            context.Entry(s).State = EntityState.Added;
+                        }
 
-        //            if (Updated == null)
-        //            {
-        //                Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
-        //                return null;
-        //            }
+                    }
+                    //מחיקת השירותים שעודכנו
+                    foreach (WorkerService s in current.WorkerServices)
+                    {
+                        bool found = false;
+                        foreach (WorkerService cs in w.WorkerServices)
+                        {
+                            if (cs.Service.Id == s.Service.Id)
+                            {
+                                found = true;
+                            }
+                        }
+                        if(!found)
+                        {
+                            current.WorkerServices.Remove(s);
+                            context.Entry(s).State = EntityState.Deleted;
+                        }
+                    }
+                        context.SaveChanges();
 
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
-        //            return Updated;
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                    return true;
 
-        //        }
-        //        else
-        //        {
-        //            Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
-        //            return null;
-        //        }
-              
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine(e.Message);
-        //        return null;
-        //    }
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
+                return false;
+            }
 
 
-        //}
+        }
 
-        //#endregion
+        #endregion
 
         #region User Update
         [Route("UpdateUser")]
