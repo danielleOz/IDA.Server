@@ -54,7 +54,7 @@ namespace IDA.Server.Controllers
                 if (user != null)
                 {
                     Worker w = context.Workers.Where(w => w.Id == user.Id)
-                        .Include(u => u.JobOffers)
+                        .Include(u => u.JobOffers).ThenInclude(u=> u.Service)
                         .Include(u => u.WorkerServices)
                         .FirstOrDefault();
                     if (w == null)
