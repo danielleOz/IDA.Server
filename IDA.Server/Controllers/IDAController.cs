@@ -117,6 +117,7 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+
         #region Get Worker
         [Route("GetWorker")]
         [HttpGet]
@@ -459,6 +460,7 @@ namespace IDA.Server.Controllers
 
         #endregion
 
+
         #region User Update
         [Route("UpdateUser")]
         [HttpPost]
@@ -496,6 +498,7 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+
         #region get availble workers 
 
         [Route("GetAvailableWorkrs")]
@@ -532,6 +535,7 @@ namespace IDA.Server.Controllers
 
 
         #endregion
+
 
         #region Job Offer
         [Route("JobOffer")]
