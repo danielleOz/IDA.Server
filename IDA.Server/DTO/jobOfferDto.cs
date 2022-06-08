@@ -27,7 +27,7 @@ namespace IDA.Server.DTO
         public JobOfferDto()
         {
            
-            }
+        }
         public JobOfferDto(JobOffer job)
         {
             Id = job.Id;

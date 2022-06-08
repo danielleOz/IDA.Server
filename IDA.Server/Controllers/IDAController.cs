@@ -12,6 +12,7 @@ using IDA.Server.Helper;
 using IDA.ServerBL.Models;
 using System.IO;
 using Microsoft.EntityFrameworkCore.Metadata;
+using SendGridLib;
 
 namespace IDA.Server.Controllers
 {
@@ -531,6 +532,51 @@ namespace IDA.Server.Controllers
                 Console.WriteLine(e.Message);
                 return null;
             }
+        }
+
+
+        #endregion
+
+        #region send email 
+
+        [Route("SendMail")]
+        [HttpPost]
+        public async Task <bool> SendMail(WorkerDto w)
+        {
+            try
+            {
+                User user = HttpContext.Session.GetObject<User>("theUser");
+                //Check if user logged in 
+                if (user != null)
+                {
+                    Worker current = context.Workers.Where(cw => cw.Id == w.Id).Include(w => w.IdNavigation).FirstOrDefault();
+                    string FName = user.FirstName;
+                    string LName = user.LastName;
+                    string WEmail = current.IdNavigation.Email;
+                    string WFName = current.IdNavigation.FirstName;
+                    string WLName = current.IdNavigation.LastName;
+
+                    string subject = "New Job Offer";
+                    string body = "hi i would like to schedule the job offer with you ";
+                    var from = FName + " " + LName;
+                    var to = WEmail;
+                    var toName = WFName + " " + WLName;
+
+                    bool success = await MailSender.SendEmail(from, to, toName, subject, body, "");
+                    return success;
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
         }
 
 
