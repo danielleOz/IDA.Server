@@ -56,8 +56,7 @@ namespace IDA.Server.Controllers
                 {
                     Worker w = context.Workers.Where(w => w.Id == user.Id)
                         .Include(u => u.JobOffers).ThenInclude(u=> u.Service)
-                        .Include(u => u.WorkerServices)
-                        .FirstOrDefault();
+                        .Include(u => u.WorkerServices).Include(u=>u.JobOffers).ThenInclude(j=>j.User.JobOffers).Include(u => u.JobOffers).ThenInclude(u => u.ChosenWorker).FirstOrDefault();
                     if (w == null)
                         HttpContext.Session.SetObject("theUser", user);
                     else
@@ -557,11 +556,11 @@ namespace IDA.Server.Controllers
                     string WLName = current.IdNavigation.LastName;
 
                     string subject = "New Job Offer";
-                    string body = "hi i would like to schedule the job offer with you ";
+                    string body = "Hi i would like to schedule Job with you ";
                     var from = FName + " " + LName;
                     var to = WEmail;
                     var toName = WFName + " " + WLName;
-
+                    string html;
                     bool success = await MailSender.SendEmail(from, to, toName, subject, body, "");
                     return success;
                 }
@@ -609,12 +608,15 @@ namespace IDA.Server.Controllers
                 }
                 else if (j.Id > 0)
                 {
-                    JobOffer offer = context.JobOffers.Find(j.Id);
+                    JobOffer offer = context.JobOffers.Include(jo => jo.Service).Include(jo => jo.User).Include(jo => jo.ChosenWorker).Where(jo => jo.Id == j.Id).FirstOrDefault();
                     offer.WorkerReviewDate = j.WorkerReviewDate;
                     offer.WorkerReviewDescriptipon = j.WorkerReviewDescriptipon;
                     offer.WorkerReviewRate = j.WorkerReviewRate;
                     context.Entry(offer).State = EntityState.Modified;
                     context.SaveChanges();
+                    
+                    j.Service = offer.Service;
+                    j.User = offer.User;
 
                 }
                 else

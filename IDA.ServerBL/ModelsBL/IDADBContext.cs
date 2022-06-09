@@ -17,7 +17,7 @@ namespace IDA.ServerBL.Models
             try
             {
                 return this.Users.Where(u => u.Email == email && u.UserPswd == pswd)
-                    .Include(u => u.JobOffers).ThenInclude(j => j.User).Include(f=> f.Worker).ThenInclude(g=> g.WorkerServices)
+                    .Include(u => u.JobOffers).ThenInclude(j => j.User).Include(u => u.JobOffers).ThenInclude(j => j.Service).Include(f=> f.Worker).ThenInclude(g=> g.WorkerServices)
                     .Include(u => u.ChatMessageRecievers)
                     .Include(u=> u.ChatMessageSenders).FirstOrDefault();
             }
