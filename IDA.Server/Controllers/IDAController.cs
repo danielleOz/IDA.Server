@@ -332,6 +332,7 @@ namespace IDA.Server.Controllers
         #endregion
 
 
+
         #region get workers reviews
 
         [Route("GetAllWR")]
@@ -640,6 +641,44 @@ namespace IDA.Server.Controllers
         }
         #endregion
 
+        #region get users joboffers
+
+        [Route("GetUserJobOffer")]
+        [HttpGet]
+        public List<JobOfferDto> GetUserJobOffer([FromQuery] int id)
+        {
+            try
+            {
+                User user = HttpContext.Session.GetObject<User>("theUser");
+                //Check if user logged in and its ID is the same as the contact user ID
+                if (user != null)
+                {
+                   User u= context.Users.Where(u => u.Id==id)
+                    .Include(u => u.JobOffers).ThenInclude(j => j.User).Include(u => u.JobOffers).ThenInclude(j => j.Service).Include(j=>j.JobOffers).ThenInclude(j=>j.ChosenWorker).Include(u=>u.JobOffers).ThenInclude(j=>j.User).Include(j => j.JobOffers).ThenInclude(j=>j.ChosenWorker.JobOffers).FirstOrDefault();
+                  
+                    List<JobOfferDto> jobOffersDto = new List<JobOfferDto>();
+                  
+                    foreach (JobOffer j in u.JobOffers)
+                    {
+                        jobOffersDto.Add(new JobOfferDto(j));
+                    }
+                    return jobOffersDto;
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+
+        #endregion
     }
 
 }
