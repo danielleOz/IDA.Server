@@ -12,6 +12,7 @@ using IDA.Server.Helper;
 using IDA.ServerBL.Models;
 using System.IO;
 using Microsoft.EntityFrameworkCore.Metadata;
+using SendGridLib;
 
 namespace IDA.Server.Controllers
 {
@@ -55,8 +56,7 @@ namespace IDA.Server.Controllers
                 {
                     Worker w = context.Workers.Where(w => w.Id == user.Id)
                         .Include(u => u.JobOffers).ThenInclude(u=> u.Service)
-                        .Include(u => u.WorkerServices)
-                        .FirstOrDefault();
+                        .Include(u => u.WorkerServices).Include(u=>u.JobOffers).ThenInclude(j=>j.User.JobOffers).Include(u => u.JobOffers).ThenInclude(u => u.ChosenWorker).FirstOrDefault();
                     if (w == null)
                         HttpContext.Session.SetObject("theUser", user);
                     else
@@ -116,6 +116,7 @@ namespace IDA.Server.Controllers
             return context.Services.ToList();
         }
         #endregion
+
 
         #region Get Worker
         [Route("GetWorker")]
@@ -459,6 +460,7 @@ namespace IDA.Server.Controllers
 
         #endregion
 
+
         #region User Update
         [Route("UpdateUser")]
         [HttpPost]
@@ -495,6 +497,7 @@ namespace IDA.Server.Controllers
             }
         }
         #endregion
+
 
         #region get availble workers 
 
@@ -533,6 +536,52 @@ namespace IDA.Server.Controllers
 
         #endregion
 
+        #region send email 
+
+        [Route("SendMail")]
+        [HttpPost]
+        public async Task <bool> SendMail(WorkerDto w)
+        {
+            try
+            {
+                User user = HttpContext.Session.GetObject<User>("theUser");
+                //Check if user logged in 
+                if (user != null)
+                {
+                    Worker current = context.Workers.Where(cw => cw.Id == w.Id).Include(w => w.IdNavigation).FirstOrDefault();
+                    string FName = user.FirstName;
+                    string LName = user.LastName;
+                    string WEmail = current.IdNavigation.Email;
+                    string WFName = current.IdNavigation.FirstName;
+                    string WLName = current.IdNavigation.LastName;
+
+                    string subject = "New Job Offer";
+                    string body = "Hi i would like to schedule Job with you ";
+                    var from = FName + " " + LName;
+                    var to = WEmail;
+                    var toName = WFName + " " + WLName;
+                    string html;
+                    bool success = await MailSender.SendEmail(from, to, toName, subject, body, "");
+                    return success;
+                }
+                else
+                {
+                    Response.StatusCode = (int)System.Net.HttpStatusCode.Forbidden;
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+
+
+        #endregion
+
+
         #region Job Offer
         [Route("JobOffer")]
         [HttpPost]
@@ -559,12 +608,15 @@ namespace IDA.Server.Controllers
                 }
                 else if (j.Id > 0)
                 {
-                    JobOffer offer = context.JobOffers.Find(j.Id);
+                    JobOffer offer = context.JobOffers.Include(jo => jo.Service).Include(jo => jo.User).Include(jo => jo.ChosenWorker).Where(jo => jo.Id == j.Id).FirstOrDefault();
                     offer.WorkerReviewDate = j.WorkerReviewDate;
                     offer.WorkerReviewDescriptipon = j.WorkerReviewDescriptipon;
                     offer.WorkerReviewRate = j.WorkerReviewRate;
                     context.Entry(offer).State = EntityState.Modified;
                     context.SaveChanges();
+                    
+                    j.Service = offer.Service;
+                    j.User = offer.User;
 
                 }
                 else

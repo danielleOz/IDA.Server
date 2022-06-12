@@ -118,7 +118,7 @@ INSERT INTO [dbo].[User]
            ,[Birthday]
            ,[IsWorker])
      VALUES
-           ('danielle.oz.do@gmail.com'
+           ('danielle.oz@gmail.com'
            ,'danielle'
            ,'oz'
            ,'123456'
@@ -143,7 +143,7 @@ INSERT INTO [dbo].[User]
            ,[Birthday]
            ,[IsWorker])
      VALUES
-           ('www@www.com'
+           ('danielle.oz.do@gmail.com'
            ,'www'
            ,'www'
            ,'123456'
